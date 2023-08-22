@@ -15,7 +15,6 @@ class LoginPage:
         self.page = Canvas(root,width=width,height=height,bg="#1c141f")
 
         #affichage de l image login avec ces caracteristiques
-
         Label(self.page,text=" Login ",fg="#3711d1",bg="#1c141f",font=("Arial",30)).place(x=270, y=20)
 
         # affichage de la l'entree username
@@ -37,7 +36,12 @@ class LoginPage:
 
         #demander a l'utilisateur si il a oublie son mot de passe
 
-        Button(self.page, text=" forget password? ",fg="#fff",font=("arial",10),bg="#1c141f",bd=0).place(x=350,y=450)
+        Button(self.page, text=" forget password? ",fg="#fff",font=("arial",10),bg="#1c141f",bd=0).place(x=310,y=450)
+        Label(self.page, text=" or",fg="#fff",font=("arial",10),bg="#1c141f",bd=0).place(x=425,y=453)
+        Button(self.page, text=" Register? ",fg="#fff",font=("arial",10),bg="#1c141f",bd=0,
+               command = lambda: RegisterPage(self.page,self.width,self.height)).place(x=450,y=450)
+
+
 
 
         #bouton de transition ver le register_page

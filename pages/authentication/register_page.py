@@ -9,7 +9,7 @@ class RegisterPage:
         self.fonts = ('Arial',14,'bold')
         # root = fenetre parent, width et height sont les dimensions de la fenetre
         self.page = Canvas(root,width=width,height=height,bg="#333333")
-        Label(self.page,text="Sing-in . " ,font=self.fonts, bg="#333333",fg="pink" ).place(x=130,y=80)
+        Label(self.page,text="Sign-in . " ,font=self.fonts, bg="#333333",fg="pink" ).place(x=130,y=80)
         Label(self.page,text="NOM : ",font=self.fonts, bg="#333333",fg="pink" ).place(x=200,y=150)
         Entry(self.page,font=self.fonts).place(x=360,y=150)
         Label(self.page,text="PRENOM : ",font=self.fonts,bg="#333333",fg="pink").place(x=200,y=180)

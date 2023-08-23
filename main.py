@@ -10,7 +10,7 @@ class MainApp:
         self.root.title("PersonalsManager")
         self.root.geometry("800x500")
         self.root.iconbitmap("icone.ico")
-        self.root.resizable(width=False,height=False)
+        #self.root.resizable(width=False,height=False)
         # premiere page ....
         self.first_window = LoginPage(self.root,width=800,height=500)
 

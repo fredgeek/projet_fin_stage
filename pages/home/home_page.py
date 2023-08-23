@@ -13,35 +13,78 @@ class HomePage:
 
         #barre de presentation en haut
         self.presentationPart = Canvas(self.page,width=self.width,height=50,bg="#32a852")
-
+        username= "exemple_var"
+        Label(self.presentationPart,text="Mr. "+username,font=("Arial",28,"italic"),bg="#32a852").place(x=300,y=7)
+        canva=Canvas(self.presentationPart,width=100,height=40)
+        img=PhotoImage(file="C:\\Users\\lion\\Documents\\GitHub\\projet_fin_stage\\login.png").zoom(20).subsample(32)
+        canva.create_image(400,100,image=img)
+        canva.place(x=680,y=5)
         self.presentationPart.place(x=0,y=0)
+
         #fin de la barre de presentation
 
         from pages.authentication.login_page import LoginPage
 
         #menus des fonctionnalités
-        self.fonction = Canvas(self.page,width=100,height=450,bg="blue")
+        self.fonction = Canvas(self.page,width=150,height=450,bg="blue")
 
         # creation du bouton mon compte
         Button(self.fonction, text=" Mon Compte", bg="blue"
-               , width=13, height=1, fg="black",font=("arial",9,"italic")).place(x=4, y=12)
+               , width=13, height=1, fg="black",font=("arial",9,"italic"),bd=0).place(x=4, y=12)
 
         #creation du menu des finances
-        Button(self.fonction, text=" Finances "
-               , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic")).place(x=4, y=130)
-        #Menu1 = Menu(self.fonction, text=" Mes Employer "
-            #   , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic")).place(x=4, y=40)
+        menu_des_finances=Menubutton(self.fonction, text=" Finances "
+               , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic"))
+        menu = Menu(menu_des_finances, tearoff=0)
+        menu_des_finances["menu"] = menu
+        menu.add_command(label="Ajout.Facture")
+        menu.add_command(label="suppr:employer")
+        menu.add_command(label="List.Factures")
+        menu_des_finances.place(x=4, y=130)
+
+        #creation du bouton des employers
+
+        menu_des_employers= Menubutton(self.fonction, text=" Mes Employers "
+             , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic"))
+        menu= Menu(menu_des_employers,tearoff=0)
+        menu_des_employers["menu"]= menu
+        menu.add_command(label="Ajout.Employer")
+        menu.add_command(label="suppr:employer")
+        menu.add_command(label="List.Employer")
+        menu_des_employers.place(x=4, y=40)
 
         #creation du menu des evènements
-        Button(self.fonction, text=" Évenements "
-               , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic")).place(x=4, y=70)
+
+        menu_des_evenements=Menubutton(self.fonction, text=" Évenements "
+               , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic"))
+        menu= Menu(menu_des_evenements,tearoff=0)
+        menu_des_evenements["menu"] = menu
+        menu.add_command(label="Ajout.rendez-Vous")
+        menu.add_command(label="Suppr.rendez-Vous")
+        menu.add_command(label="List.rendez-Vous")
+        menu_des_evenements.place(x=4, y=70)
 
         #creation du menus des clients
-        Button(self.fonction, text=" Clients "
-               , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic")).place(x=4, y=100)
+        menu_des_clients=Menubutton(self.fonction, text=" Clients "
+               , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic"))
+        menu= Menu(menu_des_clients,tearoff=0)
+        menu_des_clients["menu"]=menu
+        menu.add_command(label="Ajout.Clients")
+        menu.add_command(label="Suppr.Clients")
+        menu.add_command(label="List.Clients")
+        menu_des_clients.place(x=4, y=100)
+
         #creation du menu des statistiques
-        Button(self.fonction, text=" Statistiques "
-               , bg="blue", width=13, height=1, fg="black", font=("arial", 9, "italic")).place(x=4, y=170)
+        menu_des_statistiques=Menubutton(self.fonction, text=" Statistiques "
+               , bg="blue", width=13, height=1, fg="black", font=("arial", 9, "italic"))
+        menu = Menu(menu_des_statistiques, tearoff=0)
+        menu_des_statistiques["menu"] = menu
+        menu.add_command(label="Nbre.Employes")
+        menu.add_command(label="Nbre.Clients")
+        menu.add_command(label="Nbre.Transactions")
+        menu.add_command(label="Nbre.Evenements")
+        menu_des_statistiques.place(x=4, y=170)
+
         #creation du bouton se deconnecter
         Button(self.fonction, text=" SE Deconnecter ",bg="red",width=13,height=1,fg="black"
                ,command =lambda: LoginPage(self.page,self.width,self.height),font=("arial",9,"italic")).place(x=4,y=400)
@@ -49,12 +92,12 @@ class HomePage:
         # fin de la barre des fonctionnalités
 
         #place de presentation des fonctionnalités
-        self.present = Canvas(self.page,width=700,height=450,bg="aqua")
+        self.present = Canvas(self.page,width=650,height=450,bg="aqua")
 
 
 
 
-        self.present.place(x=100,y=51)
+        self.present.place(x=150,y=51)
         #fin du menu de presentation des fnctionnalités
 
         Label(self.page,text="Home page").place(x=40,y=20)

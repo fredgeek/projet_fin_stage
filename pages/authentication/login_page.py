@@ -31,15 +31,15 @@ class LoginPage:
 
         #Bouton dènregistrement des informations
 
-        Button(self.page,text=" Se connecter",bg="#3711d1",font=("Arial",13,"bold"),fg="white",bd=0).place(x=250,y=280)
+        Button(self.page,text=" Se connecter",bg="#3711d1",font=("Arial",13,"bold"),fg="white",bd=0 ,activebackground="#3711d1").place(x=250,y=280)
 
 
         #demander a l'utilisateur si il a oublie son mot de passe
 
-        Button(self.page, text=" forget password? ",fg="#fff",font=("arial",10),bg="#1c141f",bd=0).place(x=310,y=450)
+        Button(self.page, text=" forget password? ",fg="#fff",font=("arial",10),bg="#1c141f",bd=0,activebackground="#1c141f").place(x=310,y=450)
         Label(self.page, text=" or",fg="#fff",font=("arial",10),bg="#1c141f",bd=0).place(x=425,y=453)
         Button(self.page, text=" Register? ",fg="#fff",font=("arial",10),bg="#1c141f",bd=0,
-               command = lambda: RegisterPage(self.page,self.width,self.height)).place(x=450,y=450)
+               command = lambda: RegisterPage(self.page,self.width,self.height),activebackground="#1c141f").place(x=450,y=450)
 
 
 

@@ -7,7 +7,7 @@ from pages.authentication.login_page import LoginPage
 class MainApp:
     def __init__(self):
         self.root = Tk()
-        self.root.title("PersonalsManager")
+        self.root.title("PersonalManager")
         self.root.geometry("800x500")
         self.root.iconbitmap("icone.ico")
         self.root.resizable(width=False,height=False)

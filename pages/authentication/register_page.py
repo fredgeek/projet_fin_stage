@@ -11,7 +11,7 @@ class RegisterPage:
         self.page = Canvas(root,width=width,height=height,bg="#1c141f")
         Label(self.page,text="Créez un compte. " ,font=self.fonts ,bg="#1c141f",fg="pink" ).place(x=240,y=80)
         Label(self.page,text="NOM : ",font=self.fonts,bg="#1c141f",fg="pink" ).place(x=400,y=160)
-        Entry(self.page,font=self.fonts).place(x=570,y=160)
+        nom=Entry(self.page,font=self.fonts).place(x=570,y=160)
         Label(self.page,text="PRENOM : ",font=self.fonts,bg="#1c141f",fg="pink").place(x=400,y=215)
         Entry(self.page,font=self.fonts).place(x=570,y=215)
         Label(self.page,text="E-MAIL : ",font=self.fonts,bg="#1c141f",fg="pink" ).place(x=400,y=265)
@@ -24,7 +24,8 @@ class RegisterPage:
         Button(self.page,text="S'inscrire",font=self.fonts,bg="#1c141f",fg="cadetblue1",bd=0,).place(x=480,y=440)
         
             
-        Button(self.page,text="Effacer tout",font=self.fonts,bg="#1c141f",fg="cadetblue1",bd=0,).place(x=630,y=440)
+        Button(self.page,text="Effacer tout",font=self.fonts,bg="#1c141f",fg="cadetblue1",bd=0,
+            ).place(x=630,y=440)
         
         
         

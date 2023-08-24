@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="839129f6-1b9e-42c4-bb31-6a0b6c602dd7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/pages/Gestion_des_clients/Add_customer.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Gestion_des_clients/Add_customer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/Gestion_des_clients/delet_customer.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Gestion_des_clients/delet_customer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/Gestion_des_clients/show_cutomer.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Gestion_des_clients/show_cutomer.py" afterDir="false" />
@@ -15,6 +16,12 @@
       <change beforePath="$PROJECT_DIR$/pages/Gestion_des_finance/all_spending.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Gestion_des_finance/all_spending.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/Gestion_des_finance/new_spending.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Gestion_des_finance/new_spending.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/authentication/register_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/authentication/register_page.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/pages/Gestion_des_statistiques/nombre_clients.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Gestion_des_statistiques/nombre_clients.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Gestion_des_statistiques/nombre_employers.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Gestion_des_statistiques/nombre_employers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Gestion_des_statistiques/nombre_evenements.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Gestion_des_statistiques/nombre_evenements.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Gestion_des_statistiques/nombre_transactions.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Gestion_des_statistiques/nombre_transactions.py" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/pages/home/home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/home_page.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

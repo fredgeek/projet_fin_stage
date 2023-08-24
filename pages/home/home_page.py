@@ -57,8 +57,8 @@ class HomePage:
         menu = Menu(menu_des_finances, tearoff=0)
         menu_des_finances["menu"] = menu
         menu.add_command(label="Ajout.Facture")
-        menu.add_command(label="suppr:employer")
-        menu.add_command(label="List.Factures",command=lambda:all_spending(self.page,650,450))
+        menu.add_command(label="suppr.Facture")
+        menu.add_command(label="List.Facture",command=lambda:all_spending(self.page,650,450))
         menu_des_finances.place(x=4, y=130)
 
         #############creation du bouton des employers   #################

@@ -33,7 +33,7 @@ class HomePage:
            # root.presentationPart.after(1000, self.update_time)
 
         #time_label = Label(self.page, font=("helvetica", 15, "italic"),
-                           fg="red",bg="#32a852").place(x=650, y=10)
+                        #   fg="red",bg="#32a852").place(x=650, y=10)
         #self.update_time()
 
 ################### root = fenetre parent, width et height sont les dimensions de la fenetre #############################

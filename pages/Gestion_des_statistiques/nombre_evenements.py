@@ -12,7 +12,7 @@ class Nbr_evenements:
         # affichage du nombre d'évenements
         Nbrevenement=0
         Label(self.page, text=f"vous avez {str(Nbrevenement)} évènements", font=self.fonts, bg="#333333",
-              fg="pink").place(x=20, y=0)
+              fg="pink").place(x=20, y=4)
 
         #creation de notre treeview
 

@@ -12,7 +12,7 @@ class Nbr_employer:
         # affichage du nombre d'employer
         NbreEmployes=0
         Label(self.page, text=f"vous avez {str(NbreEmployes)} Employés", font=self.fonts, bg="#333333",
-              fg="pink").place(x=20, y=0)
+              fg="pink").place(x=20, y=4)
 
         #creation de notre treeview
 

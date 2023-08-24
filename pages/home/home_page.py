@@ -30,7 +30,7 @@ class HomePage:
 
     ################# barre de présentation en haut ########################
         self.presentationPart = Canvas(self.page,width=self.width,height=50,bg="#32a852")
-        username= "exemple_var"
+        username= "freddy"
         Label(self.presentationPart,text="Mr. "+username,font=("Arial",28,"italic"),bg="#32a852").place(x=300,y=7)
         canva=Canvas(self.presentationPart,width=100,height=40)
         img=PhotoImage(file="C:\\Users\\lion\\Documents\\GitHub\\projet_fin_stage\\login.png").zoom(20).subsample(32)

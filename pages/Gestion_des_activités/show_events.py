@@ -18,9 +18,9 @@ class all_event:
 
         fenetre=ttk.Treeview(self.page,columns = (1,2,3),heigh=5, show = "headings")
 
-        fenetre.heading(1,text="Lieu RDV")
-        fenetre.heading(2,text="Date RDV")
-        fenetre.heading(3,text="Heur RDV")
+        fenetre.heading(1,text="Lieu du RDV")
+        fenetre.heading(2,text="Date du RDV")
+        fenetre.heading(3,text="Heur du RDV")
 
         fenetre.column(1,width=55)
         fenetre.column(2,width=55)

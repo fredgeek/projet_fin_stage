@@ -20,7 +20,13 @@ class RegisterPage:
         Entry(self.page,font=self.fonts).place(x=570,y=315)
         Label(self.page,text="GENRE : ",font=self.fonts,bg="#1c141f",fg="pink" ).place(x=400,y=370)
         Entry(self.page,font=self.fonts).place(x=570,y=370)
-        Button(self.page,text="Enregistrer",font=self.fonts,bg="#1c141f",fg="cadetblue1",bd=0,).place(x=480,y=440)
+        
+        Button(self.page,text="S'inscrire",font=self.fonts,bg="#1c141f",fg="cadetblue1",bd=0,).place(x=480,y=440)
+        
+            
+        Button(self.page,text="Effacer tout",font=self.fonts,bg="#1c141f",fg="cadetblue1",bd=0,).place(x=630,y=440)
+        
+        
         
         Button(self.page, text=" Vous avez un compte? ",fg="#fff",font=("arial",10),bg="#1c141f",bd=0,
                command=self.page.destroy).place(x=480,y=500)

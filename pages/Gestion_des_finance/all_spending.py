@@ -32,7 +32,7 @@ class all_spending:
         fenetre.column(5,width=50)
 
 
-        fenetre.place(x=70,y=50,width=550,height=200)
+        fenetre.place(x=35,y=50,width=600,height=200)
 
 
         self.page.place(x=150, y=51)

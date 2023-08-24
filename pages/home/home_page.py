@@ -3,6 +3,7 @@ from tkinter import *
 from pages.Gestion_des_clients.show_cutomer import all_clients
 from pages.Gestion_des_employés.all_employee import all_employer
 from pages.Gestion_des_finance.all_spending import all_spending
+from pages.Gestion_des_finance.new_spending import ajout_facture
 from pages.Gestion_des_statistiques.nombre_employers import Nbr_employer
 from pages.Gestion_des_statistiques.nombre_clients import Nbr_clients
 from pages.Gestion_des_statistiques.nombre_evenements import Nbr_evenements
@@ -11,12 +12,6 @@ from pages.Gestion_des_employés.add_employee import ajout_employer
 from pages.Gestion_des_employés.delet_employee import delete_employer
 from pages.Gestion_des_clients.Add_customer import ajout_clients
 from pages.Gestion_des_clients.delet_customer import delete_clients
-
-
-
-
-
-
 
 
 class HomePage:
@@ -56,8 +51,8 @@ class HomePage:
                , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic"))
         menu = Menu(menu_des_finances, tearoff=0)
         menu_des_finances["menu"] = menu
-        menu.add_command(label="Ajout.Facture")
-        menu.add_command(label="suppr.Facture")
+        menu.add_command(label="Ajout.Facture",command= lambda: ajout_facture(self.page,650,450))
+        #menu.add_command(label="suppr.Facture")
         menu.add_command(label="List.Facture",command=lambda:all_spending(self.page,650,450))
         menu_des_finances.place(x=4, y=130)
 

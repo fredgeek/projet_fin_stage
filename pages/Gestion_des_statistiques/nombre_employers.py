@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 
-class all_clients:
+class Nbr_employer:
     def __init__(self, root, width, height):
         self.fonts = ('Arial', 14, 'bold')
         self.width=width
@@ -11,8 +11,8 @@ class all_clients:
         self.page = Canvas(root, width=self.width, height=self.height, bg="violet")
         # affichage du nombre d'employer
         NbreEmployes=0
-        Label(self.page, text=f"vous avez {str(NbreEmployes)} Clients", font=self.fonts, bg="#333333",
-              fg="pink").place(x=20, y=0)
+        Label(self.page, text=f"vous avez {str(NbreEmployes)} Employés", font=self.fonts, bg="#333333",
+              fg="pink").place(x=20, y=4)
 
         #creation de notre treeview
 

@@ -30,8 +30,10 @@ class LoginPage:
         username.place(x=250, y=200)
 
         #Bouton dènregistrement des informations
+        from pages.home.home_page import HomePage
 
-        Button(self.page,text=" Se connecter",bg="#3711d1",font=("Arial",13,"bold"),fg="white",bd=0).place(x=250,y=280)
+        Button(self.page,text=" Se connecter",bg="#3711d1",font=("Arial",13,"bold"),fg="white",bd=0
+               ,command=lambda :HomePage(self.page,self.width,self.height)).place(x=250,y=280)
 
 
         #demander a l'utilisateur si il a oublie son mot de passe

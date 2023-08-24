@@ -1,5 +1,5 @@
 from tkinter import *
-
+from time import strftime
 from pages.Gestion_des_clients.show_cutomer import all_clients
 from pages.Gestion_des_employés.all_employee import all_employer
 from pages.Gestion_des_finance.all_spending import all_spending
@@ -13,12 +13,28 @@ from pages.Gestion_des_employés.delet_employee import delete_employer
 from pages.Gestion_des_clients.Add_customer import ajout_clients
 from pages.Gestion_des_clients.delet_customer import delete_clients
 
+from pages.Gestion_des_activités.add_event import add_event
+from pages.Gestion_des_activités.delet_event import delete_event
+from pages.Gestion_des_activités.show_events import all_event
+
+
+
 
 class HomePage:
+
     def __init__(self,root,width,height):
         # dimensions de la fenetre
         self.width = width
         self.height = height
+
+        #def self_update_time():
+         #   currenttime = strftime("%H:%M:%S")
+          #  time_label.config(text=currenttime)
+           # root.presentationPart.after(1000, self.update_time)
+
+        #time_label = Label(self.page, font=("helvetica", 15, "italic"),
+                           fg="red",bg="#32a852").place(x=650, y=10)
+        #self.update_time()
 
 ################### root = fenetre parent, width et height sont les dimensions de la fenetre #############################
         self.page = Canvas(root,width=self.width,height=self.height,bg="yellow")
@@ -27,10 +43,12 @@ class HomePage:
         self.presentationPart = Canvas(self.page,width=self.width,height=50,bg="#32a852")
         username= "freddy"
         Label(self.presentationPart,text="Mr. "+username,font=("Arial",28,"italic"),bg="#32a852").place(x=300,y=7)
-        canva=Canvas(self.presentationPart,width=100,height=40)
-        img=PhotoImage(file="C:\\Users\\lion\\Documents\\GitHub\\projet_fin_stage\\login.png").zoom(20).subsample(32)
-        canva.create_image(400,100,image=img)
-        canva.place(x=680,y=5)
+
+
+       # canva=Canvas(self.presentationPart,width=100,height=40)
+       #  img=PhotoImage(file="C:\\Users\\lion\\Documents\\GitHub\\projet_fin_stage\\login.png").zoom(20).subsample(32)
+       #  canva.create_image(400,100,image=img)
+       #  canva.place(x=680,y=5)
         self.presentationPart.place(x=0,y=0)
 
     ##################    fin de la barre de presentation  ################################
@@ -73,9 +91,9 @@ class HomePage:
                , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic"))
         menu= Menu(menu_des_evenements,tearoff=0)
         menu_des_evenements["menu"] = menu
-        menu.add_command(label="Ajout.rendez-Vous")
-        menu.add_command(label="Suppr.rendez-Vous")
-        menu.add_command(label="List.rendez-Vous")
+        menu.add_command(label="Ajout.rendez-Vous",command=lambda:add_event(self.page,650,450))
+        menu.add_command(label="Suppr.rendez-Vous",command=lambda:delete_event(self.page,650,450))
+        menu.add_command(label="List.rendez-Vous",command=lambda:all_event(self.page,650,450))
         menu_des_evenements.place(x=4, y=70)
 
         ############### creation du menus des clients #####################

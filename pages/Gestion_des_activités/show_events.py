@@ -11,7 +11,7 @@ class all_event:
         self.page = Canvas(root, width=self.width, height=self.height, bg="#333333")
         # affichage du nombre d'employer
         NbreEmployes=0
-        Label(self.page, text=f"vous avez {str(NbreEmployes)} Employés", font=self.fonts, bg="#333333",
+        Label(self.page, text=f"vous avez {str(NbreEmployes)} Rendez-vous.", font=self.fonts, bg="#333333",
               fg="pink").place(x=20, y=7)
 
         #creation de notre treeview

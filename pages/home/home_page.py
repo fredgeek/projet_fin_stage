@@ -1,8 +1,19 @@
 from tkinter import *
+
+from pages.Gestion_des_clients.show_cutomer import all_clients
+from pages.Gestion_des_employés.all_employee import all_employer
+from pages.Gestion_des_finance.all_spending import all_spending
 from pages.Gestion_des_statistiques.nombre_employers import Nbr_employer
 from pages.Gestion_des_statistiques.nombre_clients import Nbr_clients
 from pages.Gestion_des_statistiques.nombre_evenements import Nbr_evenements
 from pages.Gestion_des_statistiques.nombre_transactions import Nbr_transactions
+from pages.Gestion_des_employés.add_employee import ajout_employer
+from pages.Gestion_des_employés.delet_employee import delete_employer
+from pages.Gestion_des_clients.Add_customer import ajout_clients
+from pages.Gestion_des_clients.delet_customer import delete_clients
+
+
+
 
 
 
@@ -47,7 +58,7 @@ class HomePage:
         menu_des_finances["menu"] = menu
         menu.add_command(label="Ajout.Facture")
         menu.add_command(label="suppr:employer")
-        menu.add_command(label="List.Factures")
+        menu.add_command(label="List.Factures",command=lambda:all_spending(self.page,650,450))
         menu_des_finances.place(x=4, y=130)
 
         #############creation du bouton des employers   #################
@@ -56,9 +67,9 @@ class HomePage:
              , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic"))
         menu= Menu(menu_des_employers,tearoff=0)
         menu_des_employers["menu"]= menu
-        menu.add_command(label="Ajout.Employer")
-        menu.add_command(label="suppr:employer")
-        menu.add_command(label="List.Employer")
+        menu.add_command(label="Ajout.Employer",command = lambda :ajout_employer(self.page,650,450))
+        menu.add_command(label="suppr:employer",command = lambda :delete_employer (self.page,650,450))
+        menu.add_command(label="List.Employer",command = lambda :all_employer (self.page,650,450))
         menu_des_employers.place(x=4, y=40)
 
         ################# creation du menu des evènements #################
@@ -77,9 +88,9 @@ class HomePage:
                , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic"))
         menu= Menu(menu_des_clients,tearoff=0)
         menu_des_clients["menu"]=menu
-        menu.add_command(label="Ajout.Clients")
-        menu.add_command(label="Suppr.Clients")
-        menu.add_command(label="List.Clients")
+        menu.add_command(label="Ajout.Clients",command= lambda :ajout_clients(self.page,650,450))
+        menu.add_command(label="Suppr.Clients",command= lambda :delete_clients(self.page,650,450))
+        menu.add_command(label="List.Clients",command= lambda :all_clients(self.page,650,450))
         menu_des_clients.place(x=4, y=100)
 
         ############## creation du menu des statistiques  ###################
@@ -109,9 +120,9 @@ class HomePage:
         Label(self.page,text="Home page").place(x=40,y=20)
 
         #bouton de transition ver le register_page
-        Button(
-            self.page, text="Back button ",
-               command=self.page.destroy).place(x=90,y=60)
+        #Button(
+         #   self.page, text="Back button ",
+          #     command=self.page.destroy).place(x=90,y=60)
 
 
         self.page.place(x=0,y=0)

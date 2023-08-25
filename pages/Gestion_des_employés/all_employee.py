@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter.font import Font
 
 class all_employer:
     def __init__(self, root, width, height):
@@ -9,8 +10,8 @@ class all_employer:
         ################# creation du canvas d'affichage ##################
 
         self.page = Canvas(root, width=self.width, height=self.height, bg="violet")
-
-        Label(self.page,text="3.     Consulter la liste de vos employers " ,font=self.fonts, bg="violet",fg="white" ).place(x=20,y=20)
+        self.font = Font(family="Helvetica", size=12, underline=True, slant="italic", weight="bold")
+        Label(self.page,text="3.   Consulter la liste de vos employers " ,font=self.font, bg="violet",fg="white" ).place(x=20,y=20)
 
         # affichage du nombre d'employer
         NbreEmployes=0

@@ -27,28 +27,17 @@ class HomePage:
         self.width = width
         self.height = height
 
-        #def self_update_time():
-         #   currenttime = strftime("%H:%M:%S")
-          #  time_label.config(text=currenttime)
-           # root.presentationPart.after(1000, self.update_time)
-
-        #time_label = Label(self.page, font=("helvetica", 15, "italic"),
-                        #   fg="red",bg="#32a852").place(x=650, y=10)
-        #self.update_time()
 
 ################### root = fenetre parent, width et height sont les dimensions de la fenetre #############################
         self.page = Canvas(root,width=self.width,height=self.height,bg="yellow")
 
     ################# barre de présentation en haut ########################
         self.presentationPart = Canvas(self.page,width=self.width,height=50,bg="#32a852")
-        username= "freddy"
-        Label(self.presentationPart,text="Mr. "+username,font=("Arial",28,"italic"),bg="#32a852").place(x=300,y=7)
+        username= "fred "
+        Label(self.presentationPart,text="BIENVENUE Mr. "+username,font=("Arial",28,"italic"),bg="#32a852").place(x=300,y=7)
 
 
-       # canva=Canvas(self.presentationPart,width=100,height=40)
-       #  img=PhotoImage(file="C:\\Users\\lion\\Documents\\GitHub\\projet_fin_stage\\login.png").zoom(20).subsample(32)
-       #  canva.create_image(400,100,image=img)
-       #  canva.place(x=680,y=5)
+
         self.presentationPart.place(x=0,y=0)
 
     ##################    fin de la barre de presentation  ################################
@@ -57,16 +46,16 @@ class HomePage:
 
     ########## menus des fonctionnalités  #####################
 
-        self.fonction = Canvas(self.page,width=150,height=450,bg="blue")
+        self.fonction = Canvas(self.page,width=200,height=self.height-51,bg="blue")
 
         ############### creation du bouton mon compte  #####################
         Button(self.fonction, text=" Mon Compte", bg="blue"
-               , width=13, height=1, fg="black",font=("arial",9,"italic"),bd=0).place(x=4, y=12)
+               , width=13, height=1, fg="black",font=("arial",14,"bold"),bd=0).place(x=4, y=12)
 
         ########## creation du menu des finances  ###########################
 
         menu_des_finances=Menubutton(self.fonction, text=" Finances "
-               , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic"))
+               , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold"))
         menu = Menu(menu_des_finances, tearoff=0)
         menu_des_finances["menu"] = menu
         menu.add_command(label="Ajout.Facture",command= lambda: ajout_facture(self.page,650,450))
@@ -77,7 +66,7 @@ class HomePage:
         #############creation du bouton des employers   #################
 
         menu_des_employers= Menubutton(self.fonction, text=" Mes Employers "
-             , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic"))
+             , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold"))
         menu= Menu(menu_des_employers,tearoff=0)
         menu_des_employers["menu"]= menu
         menu.add_command(label="Ajout.Employer",command = lambda :ajout_employer(self.page,650,450))
@@ -88,7 +77,7 @@ class HomePage:
         ################# creation du menu des evènements #################
 
         menu_des_evenements=Menubutton(self.fonction, text=" Évenements "
-               , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic"))
+               , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold"))
         menu= Menu(menu_des_evenements,tearoff=0)
         menu_des_evenements["menu"] = menu
         menu.add_command(label="Ajout.rendez-Vous",command=lambda:add_event(self.page,650,450))
@@ -98,7 +87,7 @@ class HomePage:
 
         ############### creation du menus des clients #####################
         menu_des_clients=Menubutton(self.fonction, text=" Clients "
-               , bg="blue", width=13, height=1, fg="black",font=("arial",9,"italic"))
+               , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold"))
         menu= Menu(menu_des_clients,tearoff=0)
         menu_des_clients["menu"]=menu
         menu.add_command(label="Ajout.Clients",command= lambda :ajout_clients(self.page,650,450))
@@ -108,7 +97,7 @@ class HomePage:
 
         ############## creation du menu des statistiques  ###################
         menu_des_statistiques=Menubutton(self.fonction, text=" Statistiques "
-               , bg="blue", width=13, height=1, fg="black", font=("arial", 9, "italic"))
+               , bg="blue", width=13, height=1, fg="black", font=("arial", 14, "bold"))
         menu = Menu(menu_des_statistiques, tearoff=0)
         menu_des_statistiques["menu"] = menu
         menu.add_command(label="Nbre.Employes",command=lambda:Nbr_employer(self.page,650,450))
@@ -118,19 +107,19 @@ class HomePage:
         menu_des_statistiques.place(x=4, y=170)
 
         #creation du bouton se deconnecter
-        Button(self.fonction, text=" SE Deconnecter ",bg="red",width=13,height=1,fg="black"
-               ,command =lambda: LoginPage(self.page,self.width,self.height),font=("arial",9,"italic")).place(x=4,y=400)
+        Button(self.fonction, text=" SE Deconnecter ",bg="blue",bd=0,width=13,height=1,fg="black"
+               ,command =lambda: LoginPage(self.page,self.width,self.height),font=("arial",14,"italic")).place(x=6,y=self.height-100)
         self.fonction.place(x=0,y=51)
     ############ fin de la barre des fonctionnalités #########################
 
 ########### place de presentation des fonctionnalités #########################
-        self.present = Canvas(self.page,width=650,height=450,bg="aqua")
+        self.present = Canvas(self.page,width=self.width-200,height=self.height-51,bg="aqua")
 
 
-        self.present.place(x=150,y=51)
+        self.present.place(x=200,y=51)
 ######### fin du menu de presentation des fnctionnalités #######################
 
-        Label(self.page,text="Home page").place(x=40,y=20)
+      #  Label(self.page,text="Home page").place(x=40,y=20)
 
         #bouton de transition ver le register_page
         #Button(

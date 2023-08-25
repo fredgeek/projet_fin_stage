@@ -91,8 +91,8 @@ class HomePage:
         menu= Menu(menu_des_clients,tearoff=0)
         menu_des_clients["menu"]=menu
         menu.add_command(label="Ajout.Clients",command= lambda :ajout_clients(self.page,self.width,self.height))
-        menu.add_command(label="Suppr.Clients",command= lambda :delete_clients(self.page,650,450))
-        menu.add_command(label="List.Clients",command= lambda :all_clients(self.page,650,450))
+        menu.add_command(label="Suppr.Clients",command= lambda :delete_clients(self.page,self.width,self.height))
+        menu.add_command(label="List.Clients",command= lambda :all_clients(self.page,self.width,self.height))
         menu_des_clients.place(x=4, y=100)
 
         ############## creation du menu des statistiques  ###################

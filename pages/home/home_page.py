@@ -33,8 +33,8 @@ class HomePage:
 
     ################# barre de présentation en haut ########################
         self.presentationPart = Canvas(self.page,width=self.width,height=50,bg="#32a852")
-        username= "yac "
-        Label(self.presentationPart,text="BIENVENUE Mr. "+username+" voulez allez bien?",font=("Arial",28,"italic"),bg="#32a852").place(x=300,y=7)
+        username= "fred "
+        Label(self.presentationPart,text="BIENVENUE Mr. "+username,font=("Arial",28,"italic"),bg="#32a852").place(x=300,y=7)
 
 
 
@@ -55,7 +55,7 @@ class HomePage:
         ########## creation du menu des finances  ###########################
 
         menu_des_finances=Menubutton(self.fonction, text=" Finances "
-               , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold"),activebackground="blue",activeforeground="white")
+               , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold"))
         menu = Menu(menu_des_finances, tearoff=0)
         menu_des_finances["menu"] = menu
         menu.add_command(label="Ajout.Facture",activebackground="blue",activeforeground="white",command= lambda: ajout_facture(self.page,self.width,self.height))
@@ -66,7 +66,7 @@ class HomePage:
         #############creation du bouton des employers   #################
 
         menu_des_employers= Menubutton(self.fonction, text=" Mes Employers "
-             , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold"),activebackground="blue",activeforeground="white")
+             , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold"))
         menu= Menu(menu_des_employers,tearoff=0)
         menu_des_employers["menu"]= menu
         menu.add_command(label="Ajout.Employer",activebackground="blue",activeforeground="white",command = lambda :ajout_employer(self.page,self.width,self.height))
@@ -77,7 +77,7 @@ class HomePage:
         ################# creation du menu des evènements #################
 
         menu_des_evenements=Menubutton(self.fonction, text=" Évenements "
-               , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold"),activebackground="blue",activeforeground="white")
+               , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold"))
         menu= Menu(menu_des_evenements,tearoff=0)
         menu_des_evenements["menu"] = menu
         menu.add_command(label="Ajout.rendez-Vous",activebackground="blue",activeforeground="white",command=lambda:add_event(self.page,self.width,self.height))
@@ -87,17 +87,23 @@ class HomePage:
 
         ############### creation du menus des clients #####################
         menu_des_clients=Menubutton(self.fonction, text=" Clients "
-               , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold"),activebackground="blue",activeforeground="white")
+               , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold"))
         menu= Menu(menu_des_clients,tearoff=0)
         menu_des_clients["menu"]=menu
+<<<<<<< HEAD
+        menu.add_command(label="Ajout.Clients",command= lambda :ajout_clients(self.page,self.width,self.height))
+        menu.add_command(label="Suppr.Clients",command= lambda :delete_clients(self.page,self.width,self.height))
+        menu.add_command(label="List.Clients",command= lambda :all_clients(self.page,self.width,self.height))
+=======
         menu.add_command(label="Ajout.Clients",activebackground="blue",activeforeground="white",command= lambda :ajout_clients(self.page,self.width,self.height))
         menu.add_command(label="Suppr.Clients",activebackground="blue",activeforeground="white",command= lambda :delete_clients(self.page,self.width,self.height))
         menu.add_command(label="List.Clients",activebackground="blue",activeforeground="white",command= lambda :all_clients(self.page,self.width,self.height))
+>>>>>>> main
         menu_des_clients.place(x=4, y=100)
 
         ############## creation du menu des statistiques  ###################
         menu_des_statistiques=Menubutton(self.fonction, text=" Statistiques "
-               , bg="blue", width=13, height=1, fg="black", font=("arial", 14, "bold"),activebackground="blue",activeforeground="white")
+               , bg="blue", width=13, height=1, fg="black", font=("arial", 14, "bold"))
         menu = Menu(menu_des_statistiques, tearoff=0)
         menu_des_statistiques["menu"] = menu
         menu.add_command(label="Nbre.Employes",activebackground="blue",activeforeground="white",command=lambda:Nbr_employer(self.page,self.width,self.height))
@@ -108,7 +114,7 @@ class HomePage:
 
         #creation du bouton se deconnecter
         Button(self.fonction, text=" SE Deconnecter ",bg="blue",bd=0,width=13,height=1,fg="black"
-               ,command =lambda: LoginPage(self.page,self.width,self.height),activebackground="blue",activeforeground="red",font=("arial",14,"italic")).place(x=6,y=self.height-100)
+               ,command =lambda: LoginPage(self.page,self.width,self.height),activebackground="blue",activeforeground="white",font=("arial",14,"italic")).place(x=6,y=self.height-100)
         self.fonction.place(x=0,y=51)
     ############ fin de la barre des fonctionnalités #########################
 

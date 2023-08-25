@@ -40,4 +40,4 @@ class ajout_facture:
         Button(self.page,text="   Enregitrer   ",font=("Arial",10,"italic"),bd=0,fg="green").place(x=140,y=375)
 
 #################################  affichage du canvas principale #####################
-        self.page.place(x=150, y=51)
+        self.page.place(x=200, y=51)

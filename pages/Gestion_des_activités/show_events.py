@@ -29,4 +29,4 @@ class all_event:
         fenetre.place(x=100,y=50,width=350,height=100)
 
 
-        self.page.place(x=150, y=51)
+        self.page.place(x=200, y=51)

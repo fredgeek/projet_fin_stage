@@ -5,7 +5,7 @@ from pages.Gestion_des_employés.all_employee import all_employer
 from pages.Gestion_des_finance.all_spending import all_spending
 from pages.Gestion_des_finance.new_spending import ajout_facture
 from pages.Gestion_des_statistiques.nombre_employers import Nbr_employer
-from pages.Gestion_des_statistiques.nombre_clients import Nbr_clients
+from pages.Gestion_des_statistiques.stat_de_entreprise import Nbr_clients
 from pages.Gestion_des_statistiques.nombre_evenements import Nbr_evenements
 from pages.Gestion_des_statistiques.nombre_transactions import Nbr_transactions
 from pages.Gestion_des_employés.add_employee import ajout_employer

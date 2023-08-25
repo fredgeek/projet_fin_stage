@@ -23,7 +23,7 @@ class ajout_clients:
         Entry(self.page, font=self.fonts).place(x=500, y=300)
         Label(self.page, text="Secteur D'activité : ", font=self.fonts,bg="#1c141f", fg="pink").place(x=130, y=350)
         Entry(self.page, font=self.fonts).place(x=320, y=350)
-        Button(self.page, text="Ajouter", font=self.fonts,bg="#1c141f", fg="cadetblue1",bd=0).place(x=230, y=380)
+        Button(self.page, text="Ajouter", font=self.fonts,bg="#1c141f", fg="cadetblue1",bd=0).place(x=280, y=395)
 
         # Button(
         #   self.page, text="Go to home",

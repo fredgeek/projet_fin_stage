@@ -1,26 +1,25 @@
 from tkinter import *
-from tkinter import scrolledtext
+import tkcalendar as tk
 
-from pages.home.home_page import HomePage
 
-class New_event:
-    def __init__(self,root,width,height):
-        self.fonts = ('Arial',14,'bold')
-        self.page = Canvas(root,width=width,height=height,bg="#333333")
-        Label(self.page,text="Nouveau Rendez-vous. " ,font=self.fonts, bg="#333333",fg="pink" ).place(x=130,y=80)
-        self.fonts = ('Arial',14,'bold')
-        Label(self.page,text="De quel rendez-vous s'agit il ? le nom",font=self.fonts, bg="#333333",fg="pink" ).place(x=280,y=150)
-        Entry(self.page,font=self.fonts,width=30).place(x=290,y=180)
-        Label(self.page,text="Pour quand est programmer le rendez-vous?",font=self.fonts, bg="#333333",fg="pink" ).place(x=250,y=210)
-        Entry(self.page,font=self.fonts,width=30).place(x=290,y=240)
-        Label(self.page,text="Une petite description du rendez-vous",font=self.fonts, bg="#333333",fg="pink" ).place(x=280,y=270)
-        scrolledtext.ScrolledText(self.page,width=38,height=4).place(x=290,y=300)
-        Button(self.page,text="Enregistrer",font=self.fonts, bg="#333333",fg="cadetblue1",bd=0,activebackground="#333333").place(x=215,y=380)
-        
-        
-        Button(self.page,font=self.fonts,text="Mes Rendez-vous",bg="#333333",fg="cadetblue1",bd=0,activebackground="#333333").place(x=540,y=450)
-        
-        Button(
-            self.page, text="Go to home",
-            command=lambda :HomePage(self.page, width=800, height=500),font=self.fonts, bg="#333333",fg="cadetblue1",bd=0,activebackground="#333333").place(x=540, y=380)
-        self.page.place(x=0,y=0)
+class add_event:
+    def __init__(self, root, width, height):
+        self.fonts = ('Arial', 14, 'bold')
+        self.page = Canvas(root, width=width, height=height, bg="#333333")
+        Label(self.page, text="Entrer les informations du nouveau rendez-vous. ", font=self.fonts, bg="#333333",
+              fg="pink").place(x=130, y=80)
+        Label(self.page, text="Lieu du rendez-vous : ", font=self.fonts, bg="#333333", fg="pink").place(x=175, y=150)
+        Entry(self.page, font=self.fonts).place(x=420, y=150,width=200)
+        Label(self.page, text="Date du rendez-vous: ", font=self.fonts, bg="#333333", fg="pink").place(x=175, y=210)
+        self.date=tk.DateEntry(self.page).place(x=420, y=210,width=160)
+        Label(self.page, text="A quel heur est le rende : ", font=self.fonts, bg="#333333", fg="pink").place(x=175, y=270)
+        Spinbox(self.page,from_=00, to=24, width=3).place(x=420, y=275)
+        Label(self.page,text="H",bg="#333333",fg="pink",width=1).place(x=450,y=275)
+        Spinbox(self.page, from_=00, to=60, width=3).place(x=465, y=275)
+        Label(self.page, text="Mins",width=3,bg="#333333",fg="pink").place(x=500,y=275)
+        Button(self.page, text="Enregistrer", font=self.fonts, bg="#333333", fg="cadetblue1").place(x=215, y=400)
+
+        # Button(
+        #   self.page, text="Go to home",
+        #  command=lambda :HomePage(self.page, width=800, height=500),font=self.fonts, bg="#333333",fg="cadetblue1").place(x=510, y=320)
+        self.page.place(x=150, y=51)

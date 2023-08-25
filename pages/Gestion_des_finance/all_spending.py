@@ -35,4 +35,4 @@ class all_spending:
         fenetre.place(x=35,y=50,width=600,height=200)
 
 
-        self.page.place(x=150, y=51)
+        self.page.place(x=200, y=51)

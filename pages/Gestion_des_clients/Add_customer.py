@@ -30,4 +30,4 @@ class ajout_clients:
         # Button(
         #   self.page, text="Go to home",
         #  command=lambda :HomePage(self.page, width=800, height=500),font=self.fonts, bg="#333333",fg="cadetblue1").place(x=510, y=320)
-        self.page.place(x=150, y=51)
+        self.page.place(x=200, y=51)

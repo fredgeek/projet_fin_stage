@@ -33,8 +33,8 @@ class HomePage:
 
     ################# barre de présentation en haut ########################
         self.presentationPart = Canvas(self.page,width=self.width,height=50,bg="#32a852")
-        username= "fred "
-        Label(self.presentationPart,text="BIENVENUE Mr. "+username,font=("Arial",28,"italic"),bg="#32a852").place(x=300,y=7)
+        username= "yac "
+        Label(self.presentationPart,text="BIENVENUE Mr. "+username+" voulez allez bien?",font=("Arial",28,"italic"),bg="#32a852").place(x=300,y=7)
 
 
 
@@ -108,7 +108,7 @@ class HomePage:
 
         #creation du bouton se deconnecter
         Button(self.fonction, text=" SE Deconnecter ",bg="blue",bd=0,width=13,height=1,fg="black"
-               ,command =lambda: LoginPage(self.page,self.width,self.height),activebackground="blue",activeforeground="white",font=("arial",14,"italic")).place(x=6,y=self.height-100)
+               ,command =lambda: LoginPage(self.page,self.width,self.height),activebackground="blue",activeforeground="red",font=("arial",14,"italic")).place(x=6,y=self.height-100)
         self.fonction.place(x=0,y=51)
     ############ fin de la barre des fonctionnalités #########################
 

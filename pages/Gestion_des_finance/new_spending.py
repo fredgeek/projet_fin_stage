@@ -24,6 +24,13 @@ class ajout_facture:
         i=IntVar()
         Radiobutton(self.page, text="Encaissement",value=1,variable=i, bg="yellow",font=("Arial",12,"italic"),activebackground="yellow").place(x=120,y=150)
         Radiobutton(self.page, text="Décaissement",value=2,variable=i, bg="yellow",font=("Arial",12,"italic"),activebackground="yellow").place(x=280,y=150)
+##################### bouton des facture traités et non traités ###############################
+        Label(self.page, text="STATUS : ",fg="black", font=("Arial",14,"bold"),bg="yellow").place(x=120,y=180)
+        j = IntVar()
+        Radiobutton(self.page, text="Traité", value=1, variable=j, bg="yellow", font=("Arial", 12, "italic"),
+                    activebackground="yellow").place(x=250, y=180)
+        Radiobutton(self.page, text="Non Traité", value=2, variable=j, bg="yellow", font=("Arial", 12, "italic"),
+                    activebackground="yellow").place(x=350, y=180)
 
         ####################  entrer la date de payement si disponible ####################################
         #Label(self.page, text="Date de payement(facultative) :", fg="black", font=("Arial",14, "bold"), bg="yellow").place(x=120, y=180)
@@ -43,6 +50,12 @@ class ajout_facture:
                bg="yellow",activebackground="yellow",activeforeground="blue",command=self.enregistre).place(x=225,y=375)
         Button(self.page, text="Liberez les champs ", font=("arial",14,"italic"), bg="yellow", fg="green",
                activebackground="yellow", activeforeground="red", command=self.supprimer).place(x=415, y=375)
+################################  bouton pour modifier le status d'une facture ##############################
+        Label(self.page, text="Pour modifier le status d'une factutre pré-enregistrez, cliquez ici : "
+              , fg="black", font=("Arial",9, "bold"), bg="yellow").place(x=self.width/4 -60, y=self.height-100)
+
+        Button(self.page, text="Modif.stat", font=("arial", 9, "italic"), bg="yellow", fg="green",
+               activebackground="yellow", activeforeground="red").place(x=self.width/2 +40, y=self.height-100)
 
         #################################  affichage du canvas principale #####################
         self.page.place(x=200, y=51)

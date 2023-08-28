@@ -9,15 +9,15 @@ class all_spending:
         self.height=height
         ################# creation du canvas d'affichage ##################
 
-        self.page = Canvas(root, width=self.width, height=self.height, bg="violet")
+        self.page = Canvas(root, width=self.width, height=self.height, bg="#05716c")
         self.font = Font(family="Helvetica", size=12, underline=True, slant="italic", weight="bold")
-        Label(self.page, text="2.    Consulter la listes de vos factures ", fg="black", font=self.font, bg="violet").place(x=20, y=20)
+        Label(self.page, text="2.    Consulter la listes de vos factures ", fg="black", font=self.font, bg="#05716c").place(x=20, y=20)
 
         # affichage du nombre d'évenements
         NbrFactureTraites=0
         NbrFactureNonTraites=0
         Label(self.page, text=f"vous avez {str(NbrFactureNonTraites)} factures non traités et {str(NbrFactureTraites)} factures en cours"
-              , font=self.fonts, bg="violet",fg="white").place(x=self.width-780, y=self.height-100)
+              , font=self.fonts, bg="#05716c",fg="white").place(x=self.width-780, y=self.height-100)
 
         #creation de notre treeview
 

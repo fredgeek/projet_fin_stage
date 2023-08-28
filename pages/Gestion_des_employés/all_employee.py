@@ -9,13 +9,13 @@ class all_employer:
         self.height=height
         ################# creation du canvas d'affichage ##################
 
-        self.page = Canvas(root, width=self.width, height=self.height, bg="violet")
+        self.page = Canvas(root, width=self.width, height=self.height, bg="#1978a5")
         self.font = Font(family="Helvetica", size=12, underline=True, slant="italic", weight="bold")
-        Label(self.page,text="3.   Consulter la liste de vos employers " ,font=self.font, bg="violet",fg="white" ).place(x=20,y=20)
+        Label(self.page,text="3.   Consulter la liste de vos employers " ,font=self.font, bg="#1978a5",fg="white" ).place(x=20,y=20)
 
         # affichage du nombre d'employer
         NbreEmployes=0
-        Label(self.page, text=f"vous avez {str(NbreEmployes)} Employés", font=self.fonts, bg="violet",
+        Label(self.page, text=f"vous avez {str(NbreEmployes)} Employés", font=self.fonts, bg="#1978a5",
               fg="white").place(x=self.width-500, y=self.height-110)
 
         #creation de notre treeview

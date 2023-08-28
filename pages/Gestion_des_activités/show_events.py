@@ -15,13 +15,16 @@ class all_event:
         Label(self.page, text="3.       Consulter vos different rendez-vous.", font=self.font, bg="#333333",
               fg="pink").place(x=20, y=20)
         # affichage du nombre d'employer
-        NbreEmployes=0
-        Label(self.page, text=f"vous avez {str(NbreEmployes)} Rendez-vous.", font=self.fonts, bg="#333333",
-              fg="pink").place(x=self.width-500, y=self.height-100)
+        NbreRendezVousNonTraites=0
+        NbreRendezVousTraites=0
+
+        Label(self.page, text=f"vous avez {str( NbreRendezVousNonTraites)} Rendez-vous en cour \n et {str(NbreRendezVousTraites)} déja effectués"
+              , font=self.fonts, bg="#333333",
+              fg="pink").place(x=self.width-650, y=self.height-100)
 
         #creation de notre treeview
 
-        fenetre=ttk.Treeview(self.page,columns = (1,2,3,4,5,6),heigh=5, show = "headings")
+        fenetre=ttk.Treeview(self.page,columns = (1,2,3,4,5,6,7),heigh=5, show = "headings")
 
         fenetre.heading(1,text="ID")
         fenetre.heading(2,text="Date du RDV")
@@ -29,15 +32,17 @@ class all_event:
         fenetre.heading(4,text="Heur du RDV")
         fenetre.heading(5,text="Contact")
         fenetre.heading(6,text="sexe")
+        fenetre.heading(7,text="status")
 
 
 
         fenetre.column(1,width=55)
-        fenetre.column(2,width=55)
-        fenetre.column(3,width=55)
-        fenetre.column(4,width=55)
+        fenetre.column(2,width=70)
+        fenetre.column(3,width=85)
+        fenetre.column(4,width=70)
         fenetre.column(5,width=55)
         fenetre.column(6,width=55)
+        fenetre.column(7,width=55)
 
 
         fenetre.place(x=self.width/4,y=self.height/3,width=480,height=200)

@@ -21,19 +21,23 @@ class all_spending:
 
         #creation de notre treeview
 
-        fenetre=ttk.Treeview(self.page,columns = (1,2,3,4,5),heigh=5, show = "headings")
+        fenetre=ttk.Treeview(self.page,columns = (1,2,3,4,5,6),heigh=5, show = "headings")
 
         fenetre.heading(1,text="ID")
-        fenetre.heading(2,text="encaissement/décaissement")
+        fenetre.heading(2,text="Encaissement/Décaissement")
         fenetre.heading(3,text="date d'entrer")
         fenetre.heading(4,text="Montant")
         fenetre.heading(5,text="Motif de la facture")
+        fenetre.heading(6,text="Status")
+
 
         fenetre.column(1,width=50)
         fenetre.column(2,width=100)
         fenetre.column(3,width=50)
         fenetre.column(4,width=50)
         fenetre.column(5,width=50)
+        fenetre.column(6,width=50)
+
 
 
         fenetre.place(x=100,y=200,width=600,height=200)

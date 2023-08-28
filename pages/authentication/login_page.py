@@ -12,7 +12,11 @@ class LoginPage:
         # partie de vos interfaces .....
 
         # root = fenetre parent, width et height sont les dimensions de la fenetre
+
         self.page = Canvas(root,width=width,height=height,bg="#1c141f")
+        self.image = PhotoImage(file="log.png")
+        Label(self.page, image=self.image)
+
 
         #affichage de l image login avec ces caracteristiques
         Label(self.page,text=" Login ",fg="#3711d1",bg="#1c141f",font=("Arial",30)).place(x=500, y=30)

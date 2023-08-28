@@ -16,8 +16,8 @@ class delete_clients:
         Entry(self.page, font=self.fonts).place(x=360, y=150)
         Label(self.page, text="Email :  ", font=self.fonts, bg="#333333", fg="pink").place(x=200, y=210)
         Entry(self.page, font=self.fonts).place(x=360, y=210)
-        Button(self.page, text="Supprimer", font=self.fonts, activebackground="#333333", activeforeground="blue", bg="#333333", fg="cadetblue1").place(x=215, y=320)
-        Button(self.page, text="vider les champs", activebackground="#333333", activeforeground="red", font=self.fonts, bg="#333333", fg="cadetblue1").place(x=400, y=320)
+        Button(self.page, text="Supprimer", font=self.fonts, activebackground="#333333", activeforeground="blue", bg="blue", fg="cadetblue1").place(x=215, y=320)
+        Button(self.page, text="vider les champs", activebackground="#333333", activeforeground="red", font=self.fonts, bg="orange", fg="cadetblue1").place(x=400, y=320)
 
         # Button(
         #   self.page, text="Go to home",

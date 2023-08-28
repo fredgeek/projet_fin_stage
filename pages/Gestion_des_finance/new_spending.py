@@ -46,9 +46,9 @@ class ajout_facture:
 
         ##################### bouton d'enregistrement et pour vider les champs #######################################
 
-        Button(self.page,text="   Enregitrer   ",font=("Arial",14,"italic"),fg="black",
-               bg="#05716c",activebackground="#05716c",activeforeground="blue",command=self.enregistre).place(x=225,y=375)
-        Button(self.page, text="Liberez les champs ", font=("arial",14,"italic"), bg="#05716c", fg="black",
+        Button(self.page,text="   Enregistrer   ",font=("Arial",14,"italic"),fg="black",
+               bg="blue",activebackground="#05716c",activeforeground="blue",command=self.enregistre).place(x=225,y=375)
+        Button(self.page, text="vider les champs ", font=("arial",14,"italic"), bg="orange", fg="black",
                activebackground="#05716c", activeforeground="red", command=self.supprimer).place(x=415, y=375)
 ################################  bouton pour modifier le status d'une facture ##############################
         Label(self.page, text="Pour modifier le status d'une factutre pré-enregistrez, cliquez ici : "

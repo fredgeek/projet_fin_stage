@@ -136,7 +136,11 @@ class HomePage:
         self.present.place(x=200,y=51)
 ######### fin du menu de presentation des fnctionnalités #######################
 
+<<<<<<< Updated upstream
       #  Label(self.page,text="Home page").place(x=40,y=20)
+=======
+        #Label(self.page,text="Home page").place(x=40,y=20)
+>>>>>>> Stashed changes
 
         #bouton de transition ver le register_page
         #Button(

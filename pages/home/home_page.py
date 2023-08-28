@@ -32,7 +32,10 @@ class HomePage:
         username= "yac "
         Label(self.presentationPart,text="Bienvenue Mr. "+username+" dans votre espace perso",font=("Arial",28,"italic"),bg="#05716c").place(x=300,y=7)
 
-
+        Button(self.presentationPart, text="Accueil", bg="#05716c"
+               , width=13, height=1, fg="black", font=("arial", 14, "bold"), bd=0
+               , activebackground="#05716c"
+               , activeforeground="white",command=lambda :HomePage(root,width,height)).place(x=0, y=10)
 
         self.presentationPart.place(x=0,y=0)
 
@@ -136,11 +139,8 @@ class HomePage:
         self.present.place(x=200,y=51)
 ######### fin du menu de presentation des fnctionnalités #######################
 
-<<<<<<< Updated upstream
       #  Label(self.page,text="Home page").place(x=40,y=20)
-=======
         #Label(self.page,text="Home page").place(x=40,y=20)
->>>>>>> Stashed changes
 
         #bouton de transition ver le register_page
         #Button(

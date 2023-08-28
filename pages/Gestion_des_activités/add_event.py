@@ -23,8 +23,14 @@ class add_event:
 
         Label(self.page, text="Lieu du rendez-vous : ", font=self.fonts, bg="#333333", fg="pink").place(x=175, y=215)
         Entry(self.page, font=self.fonts).place(x=420, y=215,width=200)
-        Label(self.page, text="Date du rendez-vous: ", font=self.fonts, bg="#333333", fg="pink").place(x=175, y=280)
-        self.date=tk.DateEntry(self.page).place(x=420, y=280,width=160)
+        Label(self.page, text="STATUS : ", fg="pink", font=("Arial", 14, "bold"), bg="#333333").place(x=175, y=245)
+        j = IntVar()
+        Radiobutton(self.page, text="Traité", value=1, variable=j, bg="#333333", font=("Arial", 12, "italic"),
+                    activebackground="#333333").place(x=270, y=245)
+        Radiobutton(self.page, text="Non Traité", value=2, variable=j, bg="#333333", font=("Arial", 12, "italic"),
+                    activebackground="#333333").place(x=350, y=245)
+        Label(self.page, text="Date du rendez-vous: ", font=self.fonts, bg="#333333", fg="pink").place(x=175, y=295)
+        self.date=tk.DateEntry(self.page).place(x=420, y=295,width=160)
         Label(self.page, text="Heure du rendez-vous : ", font=self.fonts, bg="#333333", fg="pink").place(x=175, y=340)
         Spinbox(self.page,from_=00, to=24, width=3).place(x=420, y=345)
         Label(self.page,text="H",bg="#333333",fg="pink",width=1).place(x=450,y=345)
@@ -35,9 +41,15 @@ class add_event:
         Label(self.page, text="Contact: ", font=self.fonts, bg="#333333", fg="pink").place(x=175, y=410)
         Entry(self.page, font=self.fonts).place(x=420, y=410, width=200)
         Button(self.page, text="Enregistrer", font=self.fonts, bg="#333333", fg="cadetblue1",activebackground="#333333"
-               ,command=self.enregistre).place(x=315, y=500)
+               ,command=self.enregistre).place(x=255, y=500)
         Button(self.page, text="Liberez les champs ", font=("arial", 14, "italic"), bg="#333333", fg="green",
-               activebackground="#333333", activeforeground="red", command=self.supprimer).place(x=505, y=500)
+               activebackground="#333333", activeforeground="red", command=self.supprimer).place(x=385, y=500)
+
+        Label(self.page, text="Pour modifier le status d'une factutre pré-enregistrez, cliquez ici : "
+              , fg="black", font=("Arial", 9, "bold"), bg="yellow").place(x=width- 200, y=height - 100)
+
+        Button(self.page, text="Modif.stat", font=("arial", 9, "italic"), bg="#333333", fg="black",
+               activebackground="yellow", activeforeground="red").place(x=width / 2 + 70, y=height - 100)
 
         # Button(
         #   self.page, text="Go to home",

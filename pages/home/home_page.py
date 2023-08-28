@@ -33,7 +33,7 @@ class HomePage:
         Label(self.presentationPart,text="Bienvenue Mr. "+username+" dans votre espace perso",font=("Arial",28,"italic"),bg="#05716c").place(x=300,y=7)
 
         Button(self.presentationPart, text="Accueil", bg="#05716c"
-               , width=13, height=1, fg="black", font=("arial", 14, "bold"), bd=0
+               , width=13, height=1, fg="black", font=("arial", 14, "italic"), bd=0
                , activebackground="#05716c"
                , activeforeground="white",command=lambda :HomePage(root,width,height)).place(x=0, y=10)
 

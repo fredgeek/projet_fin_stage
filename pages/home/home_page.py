@@ -28,9 +28,9 @@ class HomePage:
         self.page = Canvas(root,width=self.width,height=self.height,bg="yellow")
 
     ################# barre de présentation en haut ########################
-        self.presentationPart = Canvas(self.page,width=self.width,height=50,bg="#32a852")
+        self.presentationPart = Canvas(self.page,width=self.width,height=50,bg="#05716c")
         username= "yac "
-        Label(self.presentationPart,text="Bienvenue Mr. "+username+" dans votre espace perso",font=("Arial",28,"italic"),bg="#32a852").place(x=300,y=7)
+        Label(self.presentationPart,text="Bienvenue Mr. "+username+" dans votre espace perso",font=("Arial",28,"italic"),bg="#05716c").place(x=300,y=7)
 
 
 
@@ -42,19 +42,19 @@ class HomePage:
 
     ########## menus des fonctionnalités  #####################
 
-        self.fonction = Canvas(self.page,width=200,height=self.height-51,bg="blue")
+        self.fonction = Canvas(self.page,width=200,height=self.height-51,bg="#315f72")
 
         ############### creation du bouton mon compte  #####################
-        Button(self.fonction, text=" Mon Compte", bg="blue"
+        Button(self.fonction, text=" Mon Compte", bg="#315f72"
                , width=13, height=1, fg="black",font=("arial",14,"bold"),bd=0
-               ,activebackground="blue"
+               ,activebackground="#315f72"
                ,activeforeground="white",command=lambda : mon_compte(self.page,self.width,self.height)).place(x=15, y=12)
 
         ########## creation du menu des finances  ###########################
 
         menu_des_finances=Menubutton(self.fonction, text=" Finances "
-               , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold")
-                                     ,activebackground="blue",activeforeground="white")
+               , bg="#315f72", width=13, height=1, fg="black",font=("arial",14,"bold")
+                                     ,activebackground="#315f72",activeforeground="white")
         menu = Menu(menu_des_finances, tearoff=0)
         menu_des_finances["menu"] = menu
         menu.add_command(label="Ajout.Facture",activebackground="blue",activeforeground="white"
@@ -67,7 +67,7 @@ class HomePage:
         #############  creation du bouton des employers   #################
 
         menu_des_employers= Menubutton(self.fonction, text=" Mes Employers ",relief=FLAT
-             , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold"),activebackground="blue"
+             , bg="#315f72", width=13, height=1, fg="black",font=("arial",14,"bold"),activebackground="#315f72"
                                        ,activeforeground="white")
         menu= Menu(menu_des_employers,tearoff=0)
         menu_des_employers["menu"]= menu
@@ -82,8 +82,8 @@ class HomePage:
         ################# creation du menu des evènements #################
 
         menu_des_evenements=Menubutton(self.fonction, text=" Évenements "
-               , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold")
-                                       ,activebackground="blue",activeforeground="white")
+               , bg="#315f72", width=13, height=1, fg="black",font=("arial",14,"bold")
+                                       ,activebackground="#315f72",activeforeground="white")
         menu= Menu(menu_des_evenements,tearoff=0)
         menu_des_evenements["menu"] = menu
         menu.add_command(label="Ajout.rendez-Vous",activebackground="blue"
@@ -96,7 +96,7 @@ class HomePage:
 
         ############### creation du menus des clients #####################
         menu_des_clients=Menubutton(self.fonction, text=" Clients "
-               , bg="blue", width=13, height=1, fg="black",font=("arial",14,"bold"),activebackground="blue",activeforeground="white")
+               , bg="#315f72", width=13, height=1, fg="black",font=("arial",14,"bold"),activebackground="#315f72",activeforeground="white")
         menu= Menu(menu_des_clients,tearoff=0)
         menu_des_clients["menu"]=menu
         menu.add_command(label="Ajout.Clients",activebackground="blue"
@@ -109,8 +109,8 @@ class HomePage:
 
         ############## creation du menu des statistiques  ###################
         menu_des_statistiques=Button(self.fonction, text=" Statistiques "
-               , bg="blue", width=13, height=1, fg="black", font=("arial", 14, "bold"),relief=FLAT
-                                     ,activebackground="blue",activeforeground="white",command=lambda:gest_stats(self.page,self.width,self.height))
+               , bg="#315f72", width=13, height=1, fg="black", font=("arial", 14, "bold"),relief=FLAT
+                                     ,activebackground="#315f72",activeforeground="white",command=lambda:gest_stats(self.page,self.width,self.height))
         #menu = Menu(menu_des_statistiques, tearoff=0)
         #menu_des_statistiques["menu"] = menu
         #menu.add_command(label="Nbre.Employes",activebackground="blue",activeforeground="white",command=lambda:Nbr_employer(self.page,self.width,self.height))
@@ -120,8 +120,8 @@ class HomePage:
         menu_des_statistiques.place(x=4, y=310)
 
         #creation du bouton se deconnecter
-        Button(self.fonction, text=" se deconnecter ",bg="blue",bd=0,width=13,height=1,fg="red"
-               ,command =lambda: LoginPage(self.page,self.width,self.height),activebackground="blue"
+        Button(self.fonction, text=" se deconnecter ",bg="#315f72",bd=0,width=13,height=1,fg="red"
+               ,command =lambda: LoginPage(self.page,self.width,self.height),activebackground="#315f72"
                ,activeforeground="white",font=("arial",14,"italic")).place(x=6,y=self.height-100)
         self.fonction.place(x=0,y=51)
     ############ fin de la barre des fonctionnalités #########################

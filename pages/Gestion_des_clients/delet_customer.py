@@ -12,8 +12,8 @@ class delete_clients:
             x=20, y=20)
         Label(self.page, text="Quels Clients voulez-vous supprimer?   . ", font=self.fonts, bg="#333333",
               fg="pink").place(x=130, y=80)
-        Label(self.page, text="contact : ", font=self.fonts, bg="#333333", fg="pink").place(x=200, y=150)
-        Entry(self.page, font=self.fonts).place(x=360, y=150)
+        #Label(self.page, text="contact : ", font=self.fonts, bg="#333333", fg="pink").place(x=200, y=150)
+        #Entry(self.page, font=self.fonts).place(x=360, y=150)
         Label(self.page, text="Email :  ", font=self.fonts, bg="#333333", fg="pink").place(x=200, y=210)
         Entry(self.page, font=self.fonts).place(x=360, y=210)
         Button(self.page, text="Supprimer", font=self.fonts, activebackground="#333333", activeforeground="blue", bg="blue", fg="cadetblue1").place(x=215, y=320)

@@ -21,7 +21,7 @@ class delete_event :
         #Spinbox(self.page, from_=00, to=60, width=3).place(x=465, y=205)
         #Label(self.page, text="Mins",width=3,bg="#333333",fg="pink").place(x=500,y=205)
         Button(self.page,text="Supprimmer ",font=self.fonts, bg="blue",fg="cadetblue1",command=self.enregistre).place(x=215,y=400)
-        Button(self.page, text="viderr le champ ", font=self.fonts, bg="orange", fg="cadetblue1"
+        Button(self.page, text="vider le champ ", font=self.fonts, bg="orange", fg="cadetblue1"
                , command=self.supprimer, activebackground="#333333", activeforeground="red").place(x=415, y=400)
 
         #Button(s

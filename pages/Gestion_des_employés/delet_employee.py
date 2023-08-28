@@ -10,11 +10,11 @@ class delete_employer :
 
         Label(self.page,text="Entrer les informations de l'employer a supprimer. " ,font=self.fonts, bg="#1978a5",fg="white" ).place(x=130,y=80)
         self.fonts = ('Arial',14,'bold')
-        Label(self.page,text="NOM : ",font=self.fonts, bg="#1978a5",fg="pink" ).place(x=200,y=150)
+        Label(self.page,text="NOM : ",font=self.fonts, bg="#1978a5",fg="white" ).place(x=200,y=150)
         Entry(self.page,font=self.fonts).place(x=290,y=150)
-        Label(self.page,text="Email : ",font=self.fonts, bg="#1978a5",fg="pink" ).place(x=200,y=240)
+        Label(self.page,text="Email : ",font=self.fonts, bg="#1978a5",fg="white" ).place(x=200,y=240)
         Entry(self.page,font=self.fonts).place(x=290,y=240)
-        Label(self.page, text="TEL : ", font=self.fonts, bg="#1978a5", fg="pink").place(x=200, y=330)
+        Label(self.page, text="TEL : ", font=self.fonts, bg="#1978a5", fg="white").place(x=200, y=330)
         Entry(self.page, font=self.fonts).place(x=280, y=330)
 
 

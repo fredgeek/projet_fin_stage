@@ -20,8 +20,8 @@ class delete_event :
         #Label(self.page,text="H",bg="#333333",fg="pink",width=1).place(x=450,y=205)
         #Spinbox(self.page, from_=00, to=60, width=3).place(x=465, y=205)
         #Label(self.page, text="Mins",width=3,bg="#333333",fg="pink").place(x=500,y=205)
-        Button(self.page,text="Supprimmer ",font=self.fonts, bg="blue",fg="cadetblue1",command=self.enregistre).place(x=215,y=400)
-        Button(self.page, text="viderr le champ ", font=self.fonts, bg="orange", fg="cadetblue1"
+        Button(self.page,text="  Supprimmer  ",font=self.fonts, bg="orange",fg="white",command=self.enregistre).place(x=215,y=400)
+        Button(self.page, text="viderr le champ ", font=self.fonts, bg="blue", fg="white"
                , command=self.supprimer, activebackground="#333333", activeforeground="red").place(x=415, y=400)
 
         #Button(s

@@ -23,14 +23,13 @@ class ajout_facture:
         ############################## choisissez si c'est un encaissement ou un decaissement #######################
         Label(self.page, text="Est-ce un encaissement ou un décaissement? ",fg="white", font=("Arial",14,"bold"),bg="#05716c").place(x=120,y=120)
         i=IntVar()
-        Radiobutton(self.page, text="Encaissement",value=1,selectcolor="black",variable=i,fg="white", bg="#05716c",font=("Arial",14,"italic")).place(x=120,y=150)
-        Radiobutton(self.page, text="Décaissement",value=2,selectcolor="black", variable=i,fg="white", bg="#05716c",font=("Arial",14,"italic")).place(x=280,y=150)
+        Radiobutton(self.page, text="Encaissement",value=1,variable=i,activeforeground="white",activebackground="#05716c",fg="black", bg="#05716c",font=("Arial",14,"italic")).place(x=120,y=150)
+        Radiobutton(self.page, text="Décaissement",value=2, variable=i,activeforeground="white",activebackground="#05716c",fg="black", bg="#05716c",font=("Arial",14,"italic")).place(x=280,y=150)
 ##################### bouton des facture traités et non traités ###############################
         Label(self.page, text="STATUS : ",fg="white", font=("Arial",14,"bold"),bg="#05716c").place(x=120,y=200)
-        j = IntVar()
-        Radiobutton(self.page, text="Traité",selectcolor="black", value=1, variable=j,fg="white", bg="#05716c", font=("Arial", 12, "italic")
+        Radiobutton(self.page, text="Traité", value=1, variable=i,activebackground="#05716c",activeforeground="black",fg="black", bg="#05716c", font=("Arial", 12, "italic")
                     ).place(x=250, y=200)
-        Radiobutton(self.page, text="Non Traité", selectcolor="black",value=2, variable=j,fg="white", bg="#05716c", font=("Arial", 12, "italic")
+        Radiobutton(self.page, text="Non Traité",value=2, variable=i,activebackground="#05716c",fg="black",activeforeground="white", bg="#05716c", font=("Arial", 12, "italic")
                     ).place(x=350, y=200)
 
         ####################  entrer la date de payement si disponible ####################################

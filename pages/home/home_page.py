@@ -4,10 +4,6 @@ from pages.Gestion_des_clients.show_cutomer import all_clients
 from pages.Gestion_des_employés.all_employee import all_employer
 from pages.Gestion_des_finance.all_spending import all_spending
 from pages.Gestion_des_finance.new_spending import ajout_facture
-from pages.Gestion_des_statistiques.nombre_employers import Nbr_employer
-from pages.Gestion_des_statistiques.nombre_clients import Nbr_clients
-from pages.Gestion_des_statistiques.nombre_evenements import Nbr_evenements
-from pages.Gestion_des_statistiques.nombre_transactions import Nbr_transactions
 from pages.Gestion_des_employés.add_employee import ajout_employer
 from pages.Gestion_des_employés.delet_employee import delete_employer
 from pages.Gestion_des_clients.Add_customer import ajout_clients
@@ -17,7 +13,7 @@ from pages.Gestion_des_activités.add_event import add_event
 from pages.Gestion_des_activités.delet_event import delete_event
 from pages.Gestion_des_activités.show_events import all_event
 from pages.Gestion_des_statistiques.gestion_stats import gest_stats
-
+from pages.home.boutton_compte import mon_compte
 
 
 class HomePage:
@@ -51,7 +47,8 @@ class HomePage:
         ############### creation du bouton mon compte  #####################
         Button(self.fonction, text=" Mon Compte", bg="blue"
                , width=13, height=1, fg="black",font=("arial",14,"bold"),bd=0
-               ,activebackground="blue",activeforeground="white").place(x=15, y=12)
+               ,activebackground="blue"
+               ,activeforeground="white",command=lambda : mon_compte(self.page,self.width,self.height)).place(x=15, y=12)
 
         ########## creation du menu des finances  ###########################
 
@@ -130,7 +127,10 @@ class HomePage:
     ############ fin de la barre des fonctionnalités #########################
 
 ########### place de presentation des fonctionnalités #########################
+        self.img = PhotoImage(file="accueil-entreprise.png").zoom(25).subsample(13)
         self.present = Canvas(self.page,width=self.width-200,height=self.height-51,bg="aqua")
+        Label(self.present, image=self.img).place(x=0,y=0)
+
 
 
         self.present.place(x=200,y=51)

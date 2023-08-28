@@ -38,11 +38,11 @@ class ajout_facture:
 
         ################# entrez le montant de la facture ##################################
         Label(self.page, text="Entrer le montant de la facture ", fg="black", font=("Arial",14, "bold"), bg="#05716c").place(x=120, y=245)
-        Entry(self.page, font=("Arial",14,"bold"), bg="#05716c").place(x=425,y=245)
+        Entry(self.page, font=("Arial",14,"bold")).place(x=425,y=245)
 
         ############################### entrez un identifiant pour differencier les factures #############################
         Label(self.page, text="Motif de la trancactions ", fg="black", font=("Arial",14, "bold"), bg="#05716c").place(x=120, y=300)
-        Entry(self.page, font=("Arial",14,"bold"), bg="#05716c").place(x=425,y=300)
+        Entry(self.page, font=("Arial",14,"bold")).place(x=425,y=300)
 
         ##################### bouton d'enregistrement et pour vider les champs #######################################
 

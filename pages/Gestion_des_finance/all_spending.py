@@ -40,7 +40,7 @@ class all_spending:
 
 
 
-        fenetre.place(x=100,y=200,width=600,height=200)
+        fenetre.place(x=200,y=200,width=600,height=200)
 
 
         self.page.place(x=200, y=51)

@@ -37,14 +37,12 @@ class ajout_facture:
         #self.dat = DateEntry(self.page, bg="yellow").place(x=450, y=184)
 
         ################# entrez le montant de la facture ##################################
-        Label(self.page, text="Entrer le montant de la facture ", fg="white", font=("Arial",14, "bold"), bg="#05716c").place(x=120, y=245)
-        mont_fac=Entry(self.page, font=("Arial",14,"bold"))
-        mont_fac.place(x=425,y=245)
+        Label(self.page, text="Entrer le montant de la facture ", fg="black", font=("Arial",14, "bold"), bg="#05716c").place(x=120, y=245)
+        Entry(self.page, font=("Arial",14,"bold")).place(x=425,y=245)
 
         ############################### entrez un identifiant pour differencier les factures #############################
-        Label(self.page, text="Motif de la trancactions ", fg="white", font=("Arial",14, "bold"), bg="#05716c").place(x=120, y=300)
-        motif_trasc=Entry(self.page, font=("Arial",14,"bold"))
-        motif_trasc.place(x=425,y=300)
+        Label(self.page, text="Motif de la trancactions ", fg="black", font=("Arial",14, "bold"), bg="#05716c").place(x=120, y=300)
+        Entry(self.page, font=("Arial",14,"bold")).place(x=425,y=300)
 
         ##################### bouton d'enregistrement et pour vider les champs #######################################
 

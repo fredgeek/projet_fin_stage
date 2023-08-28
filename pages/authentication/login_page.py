@@ -26,14 +26,14 @@ class LoginPage:
 
         # affichage de la l'entree username
 
-        Label(self.page,text="Nom Utilisateur :",fg="white",bg="#1c141f",font=("Arial",15)).place(x=600, y=180)
-        username = Entry(self.page ,text="",font=("Arial,30,bold"))
+        Label(self.page,text="Utilisateur :",fg="white",bg="#1c141f",font=("Arial",15)).place(x=600, y=180)
+        username = Entry(self.page ,text="",font=("Arial",15,"bold"))
         username.place(x=760, y=180)
 
         #creation de la case password
 
         Label(self.page,text="Mot de passe :",fg="white",bg="#1c141f",font=("Arial",15)).place(x=600, y=275)
-        username = Entry(self.page, text="", font=("Arial,30,bold"),show="*")
+        username = Entry(self.page, text="", font=("Arial",15,"bold"),show="*")
         username.place(x=760, y=275)
 
         #Bouton dènregistrement des informations

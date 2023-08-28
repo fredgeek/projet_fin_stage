@@ -40,9 +40,9 @@ class add_event:
         Entry(self.page, font=self.fonts).place(x=420, y=370, width=200)
         Label(self.page, text="Contact: ", font=self.fonts, bg="#333333", fg="pink").place(x=175, y=410)
         Entry(self.page, font=self.fonts).place(x=420, y=410, width=200)
-        Button(self.page, text="Enregistrer", font=self.fonts, bg="#333333", fg="cadetblue1",activebackground="#333333"
+        Button(self.page, text="Enregistrer", font=self.fonts, bg="blue", fg="cadetblue1",activebackground="#333333"
                ,command=self.enregistre).place(x=255, y=500)
-        Button(self.page, text="Liberez les champs ", font=("arial", 14, "italic"), bg="#333333", fg="green",
+        Button(self.page, text="Liberez les champs ", font=("arial", 14, "italic"), bg="orange", fg="green",
                activebackground="#333333", activeforeground="red", command=self.supprimer).place(x=385, y=500)
 
         Label(self.page, text="Pour modifier le status d'une factutre pré-enregistrez, cliquez ici : "

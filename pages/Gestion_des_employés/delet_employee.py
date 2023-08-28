@@ -18,9 +18,9 @@ class delete_employer :
         Entry(self.page, font=self.fonts).place(x=280, y=330)
 
 
-        Button(self.page, text="Supprimer", font=self.fonts, bg="#1978a5", fg="cadetblue1"
+        Button(self.page, text="Supprimer", font=self.fonts, bg="blue", fg="cadetblue1"
                ,activebackground="#1978a5",activeforeground="blue",command=self.enregistre).place(x=215, y=400)
-        Button(self.page, text="liberez les champs ", font=self.fonts, bg="#1978a5", fg="cadetblue1"
+        Button(self.page, text="vider le champs ", font=self.fonts, bg="orange", fg="cadetblue1"
                ,command=self.supprimer,activebackground="#1978a5",activeforeground="red").place(x=415, y=400)
         
         

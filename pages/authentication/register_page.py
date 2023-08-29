@@ -4,6 +4,7 @@ from tkinter.font import Font
 from tkinter import messagebox as mb
 from PIL import Image, ImageTk
 import random as rd
+from tkinter import messagebox as mb
 
 from backend.requests_db import get_execute_request_without_params, set_execute_request_with_params
 
@@ -60,7 +61,15 @@ class RegisterPage:
         # bouton de transition ver le register_page approche 2
         
         self.page.place(x=0,y=0)
-    
+
+    def effacer(self):
+        test=mb.askyesno("confirmer","vous confirmer que les informations entrez sont correctes")
+        if test:
+            self.nom.delete(0,END)
+            self.email.delete(0,END)
+            self.sexe.delete(0,END)
+            self.password.delete(0,END)
+            self.contact.delete(0,END)
 
     def register(self):
         from pages.home.home_page import HomePage

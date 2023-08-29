@@ -1,9 +1,9 @@
 # importation des dependances...
-import sqlite3
 import sqlite3 as sq
 
+# creation de la table User
 cree_table_utilisateur = """ 
-CREATE TABLE utilisateur IF NOT EXIST (
+CREATE TABLE IF NOT EXISTS User  (
     id INTEGER  PRIMARY KEY,
     fullname text NOT NULL,
     password MOT NULL,
@@ -12,10 +12,9 @@ CREATE TABLE utilisateur IF NOT EXIST (
     gender text NOT NULL
     )"""
 
- 
-# creation de la tablet evenement
+# creation de la table evenement
 cree_table_Event = """
-CREATE TABLE Event IF NOT EXIST (
+CREATE TABLE IF NOT EXISTS Event (
     id integer  PRIMARY KEY,
     meet_with text NOT NULL,
     gender text NOT NULL,
@@ -27,12 +26,9 @@ CREATE TABLE Event IF NOT EXIST (
     hour_event text NOT NULL 
     )"""
 
-
-
-
 # creation table client
 cree_table_client = """
-CREATE TABLE client IF NOT EXIST (
+CREATE TABLE IF NOT EXISTS Client (
     id integer  PRIMARY KEY,
     fullname text NOT NULL , 
     email text NOT NULL , 
@@ -43,10 +39,8 @@ CREATE TABLE client IF NOT EXIST (
     quater text NOT NULL 
     )"""
 
-
-
 cree_table_employer = """ 
-CREATE TABLE employee IF NOT EXIST (
+CREATE TABLE IF NOT EXISTS Employee (
     id integer PRIMARY KEY,
     fullname text NOT NULL ,
     email text NOT NULL ,
@@ -54,12 +48,9 @@ CREATE TABLE employee IF NOT EXIST (
     gender text NOT NULL 
     )"""
 
-
-
-
 # creation table finance
 cree_table_finance = """
-CREATE TABLE finance IF NOT EXIST (
+CREATE TABLE IF NOT EXISTS Finance (
     id  integer PRIMARY KEY,
     reason text NOT NULL , 
     amount integer NOT NULL,
@@ -69,3 +60,29 @@ CREATE TABLE finance IF NOT EXIST (
     )"""
 
 
+# creation de la classe database 
+
+class Database:
+    def __init__(self):
+        # creation de la base de donnees .
+        self.my_database = sq.connect("projet_stage.db")
+        
+        # creation du curseur pour executer/parcourir notre base de donnees ...
+        self.curseur = self.my_database.cursor()
+        
+        # appel de la fonction de creation des tables.
+        self.CreateTable()
+    
+    def CreateTable(self):
+        # execution de nos requetes
+        self.curseur.execute(cree_table_utilisateur)
+        self.curseur.execute(cree_table_finance)
+        self.curseur.execute(cree_table_employer)
+        self.curseur.execute(cree_table_client)
+        self.curseur.execute(cree_table_Event)
+        
+        # mise a jour des modifications dans la base de donnees ...
+        self.my_database.commit()
+        
+            
+        

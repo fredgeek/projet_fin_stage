@@ -1,6 +1,11 @@
 from tkinter import *
 from tkinter.font import Font
 from PIL import Image, ImageTk
+import random as rd
+
+from backend.requests_db import set_execute_request_with_params
+
+
 
 class RegisterPage:
 
@@ -56,4 +61,13 @@ class RegisterPage:
 
     def effacer(self):
         self.nom, self.email, self.contact, self.password,   self.sexe="" ,"", "","" ,""
+    
+    def register(self):
+        # generateur d'id
+        id = rd.randint(100,900) +  rd.randint(1,9) +  rd.randint(10,90)
+
+        params = (id,)
+        request = "insert into User values(?,?,?,?,?,?)"
+        
+        #set_execute_request_with_params(request,params)
 

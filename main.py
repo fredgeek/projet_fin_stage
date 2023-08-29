@@ -9,7 +9,6 @@ class MainApp:
     def __init__(self):
         # appel de la classe qui cree la BD et ses tables 
         Database()
-        
         self.root = Tk()
         self.root.title("PersonalManager")
         self.root.geometry("1200x600+75+60")

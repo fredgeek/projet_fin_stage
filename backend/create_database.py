@@ -2,45 +2,70 @@
 import sqlite3
 import sqlite3 as sq
 
-#create_user = """
- #   CREATE TABLE USER IF NOT EXIST(
-  #  id integer,
-   # name text NOT NULL,
-    
-    #)
-#"""
+cree_table_utilisateur = """ 
+CREATE TABLE utilisateur IF NOT EXIST (
+    id INTEGER  PRIMARY KEY,
+    fullname text NOT NULL,
+    password MOT NULL,
+    email text NOT NULL, 
+    phone text NOT NULL,
+    gender text NOT NULL
+    )"""
 
-#create_employee = """
- #   CREATE TABLE USER IF NOT EXIST(
-  #  id integer,
-   # name text,
+ 
+# creation de la tablet evenement
+cree_table_Event = """
+CREATE TABLE Event IF NOT EXIST (
+    id integer  PRIMARY KEY,
+    meet_with text NOT NULL,
+    gender text NOT NULL,
+    phone text NOT NULL,
+    place text NOT NULL,
+    event_status text NOT NULL,
+    reason_event text NOT NULL, 
+    eventdate text NOT NULL ,
+    hour_event text NOT NULL 
+    )"""
 
-    #)
-#""")"""
 
 
-con =sq.connect("projet_stage_database.db")
 
-cur= con.cursor()
-req1="create table if not exists utilisateurs( idUtilisateur integer not null  primary key autoincrement" \
-    ",nom_complet text,mot_de_passe text,email text,sexe text,) "
-cur.execute(req1)
-req2 = "create table if not exists evenements( idEvenement  integer not null primary key autoincrement " \
-       "nom text,motif text,sexe text,lieu_rendez_vous text, status text,date_rendez_vous text,heure_rendez_vous text,contact text)"
+# creation table client
+cree_table_client = """
+CREATE TABLE client IF NOT EXIST (
+    id integer  PRIMARY KEY,
+    fullname text NOT NULL , 
+    email text NOT NULL , 
+    phone interger NOT NULL , 
+    city text NOT NULL ,
+    sector text NOT NULL ,
+    gender text NOT NULL , 
+    quater text NOT NULL 
+    )"""
 
-cur.execute(req2)
 
-req3 = "create table if not exists clients(  idClients integer not null primary key autoincrement " \
-       "nom text,email text,sexe text,quartier text,ville text,secteur_activite text,,contact text)"
-cur.execute(req3)
 
-req4 = "create table  if not exists employer(  idEmployer integer not null primary key autoincrement " \
-       "nom text,email text,sexe text,contact text)"
-cur.execute(req4)
+cree_table_employer = """ 
+CREATE TABLE employee IF NOT EXIST (
+    id integer PRIMARY KEY,
+    fullname text NOT NULL ,
+    email text NOT NULL ,
+    phone interger NOT NULL ,
+    gender text NOT NULL 
+    )"""
 
-req5 = "create table  if not exists finances( idFinances  integer not null primary key autoincrement " \
-       "date_entrez text,type text,status text,montant integer,motif text)"
-cur.execute(req5)
 
-con.commit()
-con.close()
+
+
+# creation table finance
+cree_table_finance = """
+CREATE TABLE finance IF NOT EXIST (
+    id  integer PRIMARY KEY,
+    reason text NOT NULL , 
+    amount integer NOT NULL,
+    date text NOT NULL,
+    status text NOT NULL,
+    type text NOT NULL
+    )"""
+
+

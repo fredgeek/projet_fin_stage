@@ -16,7 +16,7 @@ class RegisterPage:
 
         self.page = Canvas(root, width=width, height=height, bg="#1c141f")
         self.image = PhotoImage(file="signup.png")
-        Label(self.page, image=self.image, bg="#1c141f").place(x=30, y=150)
+        Label(self.page, image=self.image, bg="#1c141f").place(x=30, y=60)
 
         Label(self.page,text="Créer un compte. " ,font=self.fonts ,bg="#1c141f",fg="pink" ).place(x=580,y=80)
         Label(self.page,text="NOM COMPLET : ",font=self.fonts,bg="#1c141f",fg="pink" ).place(x=580,y=160)

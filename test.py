@@ -12,5 +12,5 @@ from backend.requests_db import *
 
 data = get_execute_request_without_params("select * from User")
 
-print("All username : ",data[0][1])
+print("All username : ",data)
 

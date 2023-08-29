@@ -65,7 +65,7 @@ class RegisterPage:
     def effacer(self):
         test=mb.askyesno("confirmer","vous confirmer que les informations entrez sont correctes")
         if test:
-            self.nom.delete(0,END)
+            self.fullname.delete(0,END)
             self.email.delete(0,END)
             self.sexe.delete(0,END)
             self.password.delete(0,END)
@@ -89,10 +89,14 @@ class RegisterPage:
             mb.showwarning("Erreur","Entre un mail correct")
         else:
             params = (id,fullname,password,email,phone,gender)
-            request = "insert into User values(?,?,?,?,?,?)"
+            request = "select * from User"
+            # equest = "insert into User values(?,?,?,?,?,?)"
             try :
-                info_user=set_execute_request_with_params(request,params)
-                mb.showinfo("enregitrer","vos information on bien ete enregistrer")                
+                # info_user=set_execute_request_with_params(request,params)
+                # mb.showinfo("enregitrer","vos information on bien ete enregistrer")  
+                data = get_execute_request_without_params(request,params)
+
+                print("All username : ",data[0][1])              
                 call([HomePage(self.page,self.width,self.height)])
             except Exception as e:
                 print('Erreur :',e)

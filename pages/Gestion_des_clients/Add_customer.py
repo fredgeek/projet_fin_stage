@@ -14,11 +14,14 @@ class ajout_clients:
         Label(self.page, text="Entrer les informations du clients  a enregistrer . "
               , font=self.fonts, bg="#333333", fg="pink").place(x=130, y=80)
         Label(self.page, text="NOM : ", font=self.fonts, bg="#333333", fg="pink").place(x=200, y=120)
-        Entry(self.page, font=self.fonts).place(x=380, y=120)
+        self.nom=Entry(self.page, font=self.fonts)
+        self.nom.place(x=380, y=120)
         Label(self.page, text="Email : ", font=self.fonts, bg="#333333", fg="pink").place(x=200, y=180)
-        Entry(self.page, font=self.fonts).place(x=380, y=180)
+        self.email=Entry(self.page, font=self.fonts)
+        self.email.place(x=380, y=180)
         Label(self.page, text="TEL : ", font=self.fonts, bg="#333333", fg="pink").place(x=200, y=312)
-        Entry(self.page, font=self.fonts).place(x=380, y=312)
+        self.tel=Entry(self.page, font=self.fonts)
+        self.tel.place(x=380, y=312)
         Label(self.page, text="Sexe : ", font=self.fonts, bg="#333333", fg="pink").place(x=200, y=230)
         i = IntVar()
         Radiobutton(self.page, text=" Homme ", value=1, variable=i, bg="#333333", activebackground="#333333",
@@ -31,11 +34,14 @@ class ajout_clients:
                , activebackground="#333333", activeforeground="red", command=self.supprimer).place(x=415, y=450)
 
         Label(self.page, text="Quartier: ", font=self.fonts, bg="#333333", fg="pink").place(x=200, y=270)
-        Entry(self.page, font=self.fonts).place(x=380, y=270)
+        self.quat=Entry(self.page, font=self.fonts)
+        self.quat.place(x=380, y=270)
         Label(self.page, text="Ville: ", font=self.fonts, bg="#333333", fg="pink").place(x=200, y=360)
-        Entry(self.page, font=self.fonts).place(x=380, y=360)
+        self.ville=Entry(self.page, font=self.fonts)
+        self.ville.place(x=380, y=360)
         Label(self.page, text="Secteur d'activité: ", font=self.fonts, bg="#333333", fg="pink").place(x=200, y=395)
-        Entry(self.page, font=self.fonts).place(x=380, y=395)
+        self.sect_acti=Entry(self.page, font=self.fonts)
+        self.sect_acti.place(x=380, y=395)
         # Button(
         #   self.page, text="Go to home",
         #  command=lambda :HomePage(self.page, width=800, height=500),font=self.fonts, bg="#333333",fg="cadetblue1").place(x=510, y=320)
@@ -45,4 +51,11 @@ class ajout_clients:
         mb.askyesno("confirmer", "vous confirmer que les informations entrez sont correctes? ")
 
     def supprimer(self):
-        mb.askyesno("confirmer", "Voulez- vous vraiment vider tous les champs ? ")
+        test=mb.askyesno("confirmer", "Voulez- vous vraiment vider tous les champs ? ")
+        if test:
+            self.quat.delete(0,END)
+            self.sect_acti.delete(0,END)
+            self.tel.delete(0,END)
+            self.email.delete(0,END)
+            self.nom.delete(0,END)
+            self.ville.delete(0,END)

@@ -12,7 +12,8 @@ class delete_event :
         self.fonts = ('Arial',14,'bold')
         Label(self.page, text="Entrez l'identifiant du rendez-vous (NB: se renseigner dans la liste de vos Rendez-vous)"
               , font=self.fonts, bg="#333333", fg="pink").place(x=130, y=150)
-        Entry(self.page, font=self.fonts).place(x=130, y=199)
+        self.id=Entry(self.page, font=self.fonts)
+        self.id.place(x=130, y=199)
 
 
         #Label(self.page, text="A quel heur etait le rende : ", font=self.fonts, bg="#333333", fg="pink").place(x=145, y=200)
@@ -34,4 +35,6 @@ class delete_event :
 
 
     def supprimer(self):
-        mb.askyesno("confirmer", "Voulez- vous vraiment vider tous les champs ? ")
+        test=mb.askyesno("confirmer", "Voulez- vous vraiment vider tous les champs ? ")
+        if test:
+            self.id.delete(0,END)

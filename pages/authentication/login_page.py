@@ -39,7 +39,7 @@ class LoginPage:
         #Bouton dènregistrement des informations
         from pages.home.home_page import HomePage
 
-        Button(self.page,text="              Se connecter              ",bg="#3711d1",font=("Arial",15,"bold"),fg="white",bd=0
+        Button(self.page,text="                      Se connecter                  ",bg="#3711d1",font=("Arial",15,"bold"),fg="white",bd=0
                ,command=lambda :HomePage(self.page,self.width,self.height)).place(x=605,y=380)
 
 
@@ -59,6 +59,12 @@ class LoginPage:
 
         # fin de vos interfqaces .......
         self.page.place(x=0,y=0)
+
+
+
+
+
+
 
 
 

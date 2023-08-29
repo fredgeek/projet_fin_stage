@@ -71,4 +71,4 @@ class add_event:
             self.nom.delete(0,END)
             self.lieu.delete(0,END)
             self.contact.delete(0,END)
-            self.date.delete(0,END) 
+            self.date.delete(0,END)

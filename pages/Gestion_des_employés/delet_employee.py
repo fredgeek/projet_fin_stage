@@ -41,3 +41,8 @@ class delete_employer :
             self.email.delete(0,END)
             self.nom.delete(0,END)
             self.tel.delete(0,END)
+
+
+    def suppr_employee(self):
+
+        id = rd.randint(100,900) +  rd.randint(1,9) +  rd.randint(10,90)

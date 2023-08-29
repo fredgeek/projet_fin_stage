@@ -36,19 +36,19 @@ class add_event:
         Label(self.page,text="H",bg="#333333",fg="pink",width=1).place(x=450,y=345)
         Spinbox(self.page, from_=00, to=60, width=3).place(x=465, y=345)
         Label(self.page, text="Mins",width=3,bg="#333333",fg="pink").place(x=500,y=345)
-        Label(self.page, text="Motif du rendez-vous : ", font=self.fonts, bg="#333333", fg="pink").place(x=175, y=370)
-        Entry(self.page, font=self.fonts).place(x=420, y=370, width=200)
-        Label(self.page, text="Contact: ", font=self.fonts, bg="#333333", fg="pink").place(x=175, y=410)
-        Entry(self.page, font=self.fonts).place(x=420, y=410, width=200)
-        Button(self.page, text="Enregistrer", font=self.fonts, bg="blue", fg="cadetblue1",activebackground="#333333"
-               ,command=self.enregistre).place(x=255, y=500)
-        Button(self.page, text="Liberez les champs ", font=("arial", 14, "italic"), bg="orange", fg="green",
-               activebackground="#333333", activeforeground="red", command=self.supprimer).place(x=385, y=500)
+        Label(self.page, text="Motif du rendez-vous : ", font=self.fonts, bg="#333333", fg="pink").place(x=175, y=380)
+        Entry(self.page, font=self.fonts).place(x=420, y=380, width=200)
+        Label(self.page, text="Contact: ", font=self.fonts, bg="#333333", fg="pink").place(x=175, y=420)
+        Entry(self.page, font=self.fonts).place(x=420, y=420, width=200)
+        Button(self.page, text="  Enregistrer  ", font=self.fonts, bg="blue", fg="white",activebackground="#333333"
+               ,command=self.enregistre).place(x=220, y=490)
+        Button(self.page, text="    Effacer    ", font=("arial", 14, "italic"), bg="orange", fg="white",
+               activebackground="#333333", activeforeground="white", command=self.supprimer).place(x=390, y=490)
 
         Label(self.page, text="Pour modifier le status d'une factutre pré-enregistrez, cliquez ici : "
-              , fg="black", font=("Arial", 9, "bold"), bg="yellow").place(x=width- 200, y=height - 100)
+              , fg="white", font=("Arial", 9, "bold"), bg="yellow").place(x=width- 200, y=height - 100)
 
-        Button(self.page, text="Modif.stat", font=("arial", 9, "italic"), bg="#333333", fg="black",
+        Button(self.page, text="  Modif.stat  ", font=("arial", 9, "italic"), bg="blue", fg="white",
                activebackground="yellow", activeforeground="red").place(x=width / 2 + 70, y=height - 100)
 
         # Button(

@@ -4,11 +4,12 @@ from pages.Gestion_des_clients.show_cutomer import all_clients
 from pages.Gestion_des_employés.all_employee import all_employer
 from pages.Gestion_des_finance.all_spending import all_spending
 from pages.Gestion_des_finance.new_spending import ajout_facture
+
 from pages.Gestion_des_employés.add_employee import ajout_employer
 from pages.Gestion_des_employés.delet_employee import delete_employer
 from pages.Gestion_des_clients.Add_customer import ajout_clients
 from pages.Gestion_des_clients.delet_customer import delete_clients
-
+from pages.Gestion_des_statistiques.stat_de_entreprise import Nbr_clients
 from pages.Gestion_des_activités.add_event import add_event
 from pages.Gestion_des_activités.delet_event import delete_event
 from pages.Gestion_des_activités.show_events import all_event
@@ -36,6 +37,7 @@ class HomePage:
                , width=13, height=1, fg="black", font=("arial", 14, "italic"), bd=0
                , activebackground="#05716c"
                , activeforeground="white",command=lambda :HomePage(root,width,height)).place(x=0, y=10)
+
 
         self.presentationPart.place(x=0,y=0)
 

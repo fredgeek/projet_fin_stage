@@ -11,7 +11,7 @@ class all_spending:
 
         self.page = Canvas(root, width=self.width, height=self.height, bg="#05716c")
         self.font = Font(family="Helvetica", size=12, underline=True, slant="italic", weight="bold")
-        Label(self.page, text="2.    Consulter la listes de vos factures ", fg="black", font=self.font, bg="#05716c").place(x=20, y=20)
+        Label(self.page, text="2.    Consulter la listes de vos factures ", fg="white", font=self.font, bg="#05716c").place(x=20, y=20)
 
         # affichage du nombre d'évenements
         NbrFactureTraites=0

@@ -45,7 +45,7 @@ class RegisterPage:
         self.sexe.current(0)
         self.sexe.place(x=790,y=370)
         Button(self.page,text="         Effacer         ",font=self.fonts,bg="orange",fg="white",bd=0
-               ).place(x=580,y=440)
+          ,command=self.effacer     ).place(x=580,y=440)
         
             
         Button(self.page,text="        S'inscrire        ",font=self.fonts,bg="blue",fg="white",bd=0,command=self.register
@@ -91,14 +91,14 @@ class RegisterPage:
             mb.showwarning("Erreur","Entre un mail correct")
         else:
             params = (id,fullname,password,email,phone,gender)
-            request = "select * from User"
-            # equest = "insert into User values(?,?,?,?,?,?)"
+            #request = "select * from User"
+            request = "insert into User values(?,?,?,?,?,?)"
             try :
-                # info_user=set_execute_request_with_params(request,params)
-                # mb.showinfo("enregitrer","vos information on bien ete enregistrer")  
-                data = get_execute_request_without_params(request,params)
+                info_user=set_execute_request_with_params(request,params)
+                mb.showinfo("enregistrer","vos informations ont bien été enregistrer")
+                #data = get_execute_request_without_params(request)
 
-                print("All username : ",data[0][1])              
+                #print("All username : ",data)
                 call([HomePage(self.page,self.width,self.height)])
             except Exception as e:
                 print('Erreur :',e)

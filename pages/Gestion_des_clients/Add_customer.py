@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox as mb
+import random as rd
 from tkinter.font import Font
 
 

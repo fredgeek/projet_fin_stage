@@ -38,7 +38,7 @@ class LoginPage:
               self.password = Entry(self.page, text="", font=("Arial",15,"bold"),show="*")
               self.password.place(x=760, y=275)
               
-              Button(self.page,text="              Se connecter              ",bg="#3711d1",font=("Arial",15,"bold"),fg="white",bd=0
+              Button(self.page,text="                    Se connecter                    ",bg="#3711d1",font=("Arial",15,"bold"),fg="white",bd=0
                ,command=self.connection).place(x=605,y=380)
 
 

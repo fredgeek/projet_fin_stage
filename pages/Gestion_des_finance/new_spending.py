@@ -12,16 +12,16 @@ class ajout_facture:
 ############################   création du canvas d'affichage   ######################
         self.page = Canvas(root, width=self.width, height=self.height, bg="#05716c")
         self.font=Font(family="Helvetica",size=12,underline=True,slant="italic",weight="bold")
-        Label(self.page, text="1.    Enregistrez les informations de votre facture", fg="white", font=self.font, bg="#05716c").place(x=20, y=20)
+        Label(self.page, text="1.    Enregistrez les informations de votre facture", fg="black", font=self.font, bg="#05716c").place(x=20, y=20)
         ############### creation du formulaire de renseignement ########################
 
         ############### entrer la date d'enregistrement de la facture ########################
-        Label(self.page, text="Date d'entrer :",fg="white", font=("Arial",14,"bold"),bg="#05716c").place(x=120,y=80)
+        Label(self.page, text="Date d'entrer :",fg="black", font=("Arial",14,"bold"),bg="#05716c").place(x=120,y=80)
         self.dat = DateEntry(self.page, bg="#05716c")
         self.dat.place(x=290,y=84)
 
         ############################## choisissez si c'est un encaissement ou un decaissement #######################
-        Label(self.page, text="Est-ce un encaissement ou un décaissement? ",fg="white", font=("Arial",14,"bold"),bg="#05716c").place(x=120,y=120)
+        Label(self.page, text="Est-ce un encaissement ou un décaissement? ",fg="black", font=("Arial",14,"bold"),bg="#05716c").place(x=120,y=120)
         i=IntVar()
         Radiobutton(self.page, text="Encaissement",value=1,variable=i,activeforeground="white",activebackground="#05716c",fg="black", bg="#05716c",font=("Arial",14,"italic")).place(x=120,y=150)
         Radiobutton(self.page, text="Décaissement",value=2, variable=i,activeforeground="white",activebackground="#05716c",fg="black", bg="#05716c",font=("Arial",14,"italic")).place(x=280,y=150)
@@ -38,11 +38,13 @@ class ajout_facture:
 
         ################# entrez le montant de la facture ##################################
         Label(self.page, text="Entrer le montant de la facture ", fg="black", font=("Arial",14, "bold"), bg="#05716c").place(x=120, y=245)
-        Entry(self.page, font=("Arial",14,"bold")).place(x=425,y=245)
+        self.montant=Entry(self.page, font=("Arial",14,"bold"))
+        self.montant.place(x=425,y=245)
 
         ############################### entrez un identifiant pour differencier les factures #############################
         Label(self.page, text="Motif de la trancactions ", fg="black", font=("Arial",14, "bold"), bg="#05716c").place(x=120, y=300)
-        Entry(self.page, font=("Arial",14,"bold")).place(x=425,y=300)
+        self.motif=Entry(self.page, font=("Arial",14,"bold"))
+        self.motif.place(x=425,y=300)
 
         ##################### bouton d'enregistrement et pour vider les champs #######################################
 
@@ -63,4 +65,8 @@ class ajout_facture:
     def enregistre(self):
             mb.askyesno("confirmer","vous confirmer que les informations entrez sont correctes? ")
     def supprimer(self):
-            mb.askyesno("confirmer","Voulez- vous vraiment vider tous les champs ? ")
+            test=mb.askyesno("confirmer","Voulez- vous vraiment vider tous les champs ? ")
+            if test:
+                self.motif.delete(0,END)
+                self.montant.delete(0,END)
+                self.dat.delete(0,END)

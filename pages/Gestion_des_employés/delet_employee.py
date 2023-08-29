@@ -11,11 +11,14 @@ class delete_employer :
         Label(self.page,text="Entrer les informations de l'employer a supprimer. " ,font=self.fonts, bg="#1978a5",fg="white" ).place(x=130,y=80)
         self.fonts = ('Arial',14,'bold')
         Label(self.page,text="NOM : ",font=self.fonts, bg="#1978a5",fg="white" ).place(x=200,y=150)
-        Entry(self.page,font=self.fonts).place(x=290,y=150)
+        self.nom=Entry(self.page,font=self.fonts)
+        self.nom.place(x=290,y=150)
         Label(self.page,text="Email : ",font=self.fonts, bg="#1978a5",fg="white" ).place(x=200,y=240)
-        Entry(self.page,font=self.fonts).place(x=290,y=240)
+        self.email=Entry(self.page,font=self.fonts)
+        self.email.place(x=290,y=240)
         Label(self.page, text="TEL : ", font=self.fonts, bg="#1978a5", fg="white").place(x=200, y=330)
-        Entry(self.page, font=self.fonts).place(x=280, y=330)
+        self.tel=Entry(self.page, font=self.fonts)
+        self.tel.place(x=280, y=330)
 
 
         Button(self.page, text="Supprimer", font=self.fonts, bg="blue", fg="cadetblue1"
@@ -33,4 +36,8 @@ class delete_employer :
         mb.askyesno("confirmer", "vous confirmer que les informations entrez sont correctes? ")
 
     def supprimer(self):
-        mb.askyesno("confirmer", "Voulez- vous vraiment vider tous les champs ? ")
+        test=mb.askyesno("confirmer", "Voulez- vous vraiment vider tous les champs ? ")
+        if test:
+            self.email.delete(0,END)
+            self.nom.delete(0,END)
+            self.tel.delete(0,END)

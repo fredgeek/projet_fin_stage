@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter.font import Font
-
+from tkinter import messagebox as mb
 
 class delete_clients:
     def __init__(self, root, width, height):
@@ -15,11 +15,18 @@ class delete_clients:
         #Label(self.page, text="contact : ", font=self.fonts, bg="#333333", fg="pink").place(x=200, y=150)
         #Entry(self.page, font=self.fonts).place(x=360, y=150)
         Label(self.page, text="Email :  ", font=self.fonts, bg="#333333", fg="pink").place(x=200, y=210)
-        Entry(self.page, font=self.fonts).place(x=360, y=210)
-        Button(self.page, text="Supprimer", font=self.fonts, activebackground="#333333", activeforeground="blue", bg="blue", fg="cadetblue1").place(x=215, y=320)
-        Button(self.page, text="vider les champs", activebackground="#333333", activeforeground="red", font=self.fonts, bg="orange", fg="cadetblue1").place(x=400, y=320)
+        self.email=Entry(self.page, font=self.fonts)
+        self.email.place(x=360, y=210)
+        Button(self.page, text="Supprimer", font=self.fonts, activebackground="#333333", activeforeground="blue", bg="blue", fg="cadetblue1",).place(x=215, y=320)
+        Button(self.page, text="vider le champ", activebackground="#333333", activeforeground="red", font=self.fonts, bg="orange", fg="cadetblue1",command=self.supprimer).place(x=400, y=320)
 
         # Button(
         #   self.page, text="Go to home",
         #  command=lambda :HomePage(self.page, width=800, height=500),font=self.fonts, bg="#333333",fg="cadetblue1").place(x=510, y=320)
         self.page.place(x=200, y=51)
+
+
+    def supprimer(self):
+        test=mb.askyesno("confirmer","vous confirmer que les informations entrez sont correctes? ")
+        if test:
+            self.email.delete(0,END)

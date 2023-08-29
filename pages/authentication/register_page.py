@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter.font import Font
 from PIL import Image, ImageTk
 import random as rd
+from tkinter import messagebox as mb
 
 from backend.requests_db import set_execute_request_with_params
 
@@ -60,8 +61,14 @@ class RegisterPage:
         self.page.place(x=0,y=0)
 
     def effacer(self):
-        self.nom, self.email, self.contact, self.password,   self.sexe="" ,"", "","" ,""
-    
+        test=mb.askyesno("confirmer","vous confirmer que les informations entrez sont correctes")
+        if test:
+            self.nom.delete(0,END)
+            self.email.delete(0,END)
+            self.sexe.delete(0,END)
+            self.password.delete(0,END)
+            self.contact.delete(0,END)
+
     def register(self):
         # generateur d'id
         id = rd.randint(100,900) +  rd.randint(1,9) +  rd.randint(10,90)

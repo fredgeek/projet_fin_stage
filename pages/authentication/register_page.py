@@ -20,24 +20,26 @@ class RegisterPage:
 
         Label(self.page,text="Créer un compte. " ,font=self.fonts ,bg="#1c141f",fg="pink" ).place(x=580,y=80)
         Label(self.page,text="NOM COMPLET : ",font=self.fonts,bg="#1c141f",fg="pink" ).place(x=580,y=160)
-        nom=Entry(self.page,font=self.fonts)
-        nom.place(x=790,y=160)
+        self.nom=Entry(self.page,font=self.fonts)
+        self.nom.place(x=790,y=160)
         Label(self.page,text="EMAIL : ",font=self.fonts,bg="#1c141f",fg="pink").place(x=580,y=215)
-        Entry(self.page,font=self.fonts).place(x=790,y=215)
+        self.email=Entry(self.page,font=self.fonts)
+        self.email.place(x=790,y=215)
         Label(self.page,text="TELEPHONE : ",font=self.fonts,bg="#1c141f",fg="pink" ).place(x=580,y=265)
-        Entry(self.page,font=self.fonts).place(x=790,y=265)
+        self.contact=Entry(self.page,font=self.fonts)
+        self.contact.place(x=790,y=265)
         Label(self.page,text="MOT DE PASS : ",font=self.fonts,bg="#1c141f",fg="pink" ).place(x=580,y=315)
-        Entry(self.page,font=self.fonts).place(x=790,y=315)
+        self.password=Entry(self.page,font=self.fonts)
+        self.password.place(x=790,y=315)
         Label(self.page,text="GENRE : ",font=self.fonts,bg="#1c141f",fg="pink" ).place(x=580,y=370)
-        Entry(self.page,font=self.fonts).place(x=790,y=370)
-        
-        Button(self.page,text="         Effacer         ",font=self.fonts,bg="orange",fg="white",bd=0,).place(x=580,y=440)
+        self.sexe=Entry(self.page,font=self.fonts)
+        self.sexe.place(x=790,y=370)
+        Button(self.page,text="         Effacer         ",font=self.fonts,bg="orange",fg="white",bd=0,
+               command= self.effacer).place(x=580,y=440)
         
             
         Button(self.page,text="        S'inscrire        ",font=self.fonts,bg="blue",fg="white",bd=0,
             ).place(x=829,y=440)
-        
-        
         
         Button(self.page, text=" Vous avez un compte? ",fg="#fff",font=("arial",13),bg="#1c141f",bd=0,
                command=self.page.destroy).place(x=700,y=500)
@@ -51,4 +53,7 @@ class RegisterPage:
         # bouton de transition ver le register_page approche 2
         
         self.page.place(x=0,y=0)
+
+    def effacer(self):
+        self.nom, self.email, self.contact, self.password,   self.sexe="" ,"", "","" ,""
 

@@ -74,23 +74,4 @@ class LoginPage:
                      else:
                             mb.showinfo("Ekkieuuuu","Mot de pase incorrect !")
 
-                            
-
-              
               #call([HomePage(self.page,self.width,self.height)])
-              
-            
-        
-        
-
-        
-
-
-
-
-
-
-
-
-
-

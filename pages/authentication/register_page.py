@@ -5,6 +5,7 @@ from tkinter import messagebox as mb
 from PIL import Image, ImageTk
 import random as rd
 from tkinter import messagebox as mb
+from tkinter import ttk
 
 from backend.requests_db import get_execute_request_without_params, set_execute_request_with_params
 
@@ -40,7 +41,8 @@ class RegisterPage:
         self.password=Entry(self.page,font=self.fonts)
         self.password.place(x=790,y=315)
         Label(self.page,text="GENRE : ",font=self.fonts,bg="#1c141f",fg="pink" ).place(x=580,y=370)
-        self.sexe=Entry(self.page,font=self.fonts)
+        self.sexe=ttk.Combobox(self.page,values=("Homme","Femme"),width=34)
+        self.sexe.current(0)
         self.sexe.place(x=790,y=370)
         Button(self.page,text="         Effacer         ",font=self.fonts,bg="orange",fg="white",bd=0,command=self.effacer
                ).place(x=580,y=440)

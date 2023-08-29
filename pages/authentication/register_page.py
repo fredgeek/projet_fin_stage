@@ -1,10 +1,12 @@
 from tkinter import *
+from subprocess import call
 from tkinter.font import Font
+from tkinter import messagebox as mb
 from PIL import Image, ImageTk
 import random as rd
 from tkinter import messagebox as mb
 
-from backend.requests_db import set_execute_request_with_params
+from backend.requests_db import get_execute_request_without_params, set_execute_request_with_params
 
 
 
@@ -26,8 +28,8 @@ class RegisterPage:
 
         Label(self.page,text="Créer un compte. " ,font=self.fonts ,bg="#1c141f",fg="pink" ).place(x=580,y=80)
         Label(self.page,text="NOM COMPLET : ",font=self.fonts,bg="#1c141f",fg="pink" ).place(x=580,y=160)
-        self.nom=Entry(self.page,font=self.fonts)
-        self.nom.place(x=790,y=160)
+        self.fullname=Entry(self.page,font=self.fonts)
+        self.fullname.place(x=790,y=160)
         Label(self.page,text="EMAIL : ",font=self.fonts,bg="#1c141f",fg="pink").place(x=580,y=215)
         self.email=Entry(self.page,font=self.fonts)
         self.email.place(x=790,y=215)
@@ -40,11 +42,11 @@ class RegisterPage:
         Label(self.page,text="GENRE : ",font=self.fonts,bg="#1c141f",fg="pink" ).place(x=580,y=370)
         self.sexe=Entry(self.page,font=self.fonts)
         self.sexe.place(x=790,y=370)
-        Button(self.page,text="         Effacer         ",font=self.fonts,bg="orange",fg="white",bd=0,
-               command= self.effacer).place(x=580,y=440)
+        Button(self.page,text="         Effacer         ",font=self.fonts,bg="orange",fg="white",bd=0
+               ).place(x=580,y=440)
         
             
-        Button(self.page,text="        S'inscrire        ",font=self.fonts,bg="blue",fg="white",bd=0,
+        Button(self.page,text="        S'inscrire        ",font=self.fonts,bg="blue",fg="white",bd=0,command=self.register
             ).place(x=829,y=440)
         
         Button(self.page, text=" Vous avez un compte? ",fg="#fff",font=("arial",13),bg="#1c141f",bd=0,
@@ -63,18 +65,42 @@ class RegisterPage:
     def effacer(self):
         test=mb.askyesno("confirmer","vous confirmer que les informations entrez sont correctes")
         if test:
-            self.nom.delete(0,END)
+            self.fullname.delete(0,END)
             self.email.delete(0,END)
             self.sexe.delete(0,END)
             self.password.delete(0,END)
             self.contact.delete(0,END)
 
     def register(self):
+        from pages.home.home_page import HomePage
         # generateur d'id
         id = rd.randint(100,900) +  rd.randint(1,9) +  rd.randint(10,90)
-
-        params = (id,)
-        request = "insert into User values(?,?,?,?,?,?)"
         
-        #set_execute_request_with_params(request,params)
+        # recuperation des entry
+        fullname=self.fullname.get()
+        password=self.password.get()
+        email=self.email.get()
+        phone=self.contact.get()
+        gender=self.sexe.get()
+        #  test si tous les champ sont remplis
+        if fullname=="" or password=="" or email=="" or phone=="" or gender=="" :
+            mb.showwarning("Avertisement!!","veillez remplir tout les champs.")
+        elif email[-10:] != "@gmail.com":
+            mb.showwarning("Erreur","Entre un mail correct")
+        else:
+            params = (id,fullname,password,email,phone,gender)
+            request = "select * from User"
+            # equest = "insert into User values(?,?,?,?,?,?)"
+            try :
+                # info_user=set_execute_request_with_params(request,params)
+                # mb.showinfo("enregitrer","vos information on bien ete enregistrer")  
+                data = get_execute_request_without_params(request,params)
+
+                print("All username : ",data[0][1])              
+                call([HomePage(self.page,self.width,self.height)])
+            except Exception as e:
+                print('Erreur :',e)
+            
+            
+        
 

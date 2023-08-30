@@ -10,7 +10,7 @@ curseur = my_database.cursor()
 # creation de la fonction sans parametre ...
 
 def get_execute_request_with_params(request,params):
-    curseur.execute(request,params)
+    curseur.execute(request, params)
     result = curseur.fetchall()
     
     # retour du resultat de la requete ...

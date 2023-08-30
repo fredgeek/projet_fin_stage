@@ -2,6 +2,9 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.font import Font
 
+from backend.requests_db import get_execute_request_without_params
+
+
 class all_employer:
     def __init__(self, root, width, height):
         self.fonts = ('Arial', 14, 'bold')
@@ -22,10 +25,10 @@ class all_employer:
 
         fenetre=ttk.Treeview(self.page,columns = (1,2,3,4),heigh=5, show = "headings")
 
-        fenetre.heading(1,text="Nom")
-        fenetre.heading(2,text="Sexe")
-        fenetre.heading(3,text="Contacts")
-        fenetre.heading(4,text="Email")
+        fenetre.heading(1,text="Id")
+        fenetre.heading(2,text="Nom")
+        fenetre.heading(3,text="Email")
+        fenetre.heading(4,text="Contacts")
 
         fenetre.column(1,width=50)
         fenetre.column(2,width=50)
@@ -36,5 +39,10 @@ class all_employer:
 
         fenetre.place(x=200,y=150,width=450,height=250)
 
+        request="select * from Employee "
+
+        select=get_execute_request_without_params(request)
+        for i in select:
+            fenetre.insert('',END,values=i)
 
         self.page.place(x=200, y=51)

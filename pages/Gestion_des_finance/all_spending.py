@@ -45,7 +45,6 @@ class all_spending:
             fenetre.insert("", END, values=j)
 
         # affichage du nombre d'évenements
-
         param1="Non Payée"
         param2="Payée"
         request1="select * from Finance where status=?"

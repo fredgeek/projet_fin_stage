@@ -13,8 +13,10 @@ class gest_stats:
 ################### ouverture du canvas qui va contenir la page #######################
         self.page =Canvas(root,width=self.width,height=self.height,bg="#444444")
         self.font= Font(family="helvetica",underline=True,slant="italic",weight="bold",size=24)
+        
         Label(self.page, text="Voici vos statistiques du moment:"
               ,font=self.font,bg="#444444").place(x=self.width/2- 350,y=10)
+        
         ###################### creation du premier frame client ##############################
         Label(self.page,text="Clients :",font=self.font,bg="#444444").place(x=self.width/4 -170,y=self.height/4)
         request = "select * from Event "

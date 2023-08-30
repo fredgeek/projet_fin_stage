@@ -2,6 +2,9 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.font import Font
 
+from backend.requests_db import get_execute_request_without_params, get_execute_request_with_params
+
+
 class all_spending:
     def __init__(self, root, width, height):
         self.fonts = ('Arial', 14, 'bold')
@@ -13,15 +16,10 @@ class all_spending:
         self.font = Font(family="Helvetica", size=12, underline=True, slant="italic", weight="bold")
         Label(self.page, text="2.    Consulter la listes de vos factures ", fg="white", font=self.font, bg="#05716c").place(x=20, y=20)
 
-        # affichage du nombre d'évenements
-        NbrFactureTraites=0
-        NbrFactureNonTraites=0
-        Label(self.page, text=f"vous avez {str(NbrFactureNonTraites)} factures non traités et {str(NbrFactureTraites)} factures en cours"
-              , font=self.fonts, bg="#05716c",fg="white").place(x=self.width-780, y=self.height-100)
 
         #creation de notre treeview
 
-        fenetre=ttk.Treeview(self.page,columns = (1,2,3,4,5,6),heigh=5, show = "headings")
+        fenetre = ttk.Treeview(self.page,columns = (1,2,3,4,5,6),heigh=5, show = "headings")
 
         fenetre.heading(1,text="ID")
         fenetre.heading(2,text="Encaissement/Décaissement")
@@ -41,6 +39,19 @@ class all_spending:
 
 
         fenetre.place(x=200,y=200,width=600,height=200)
+        request="select * from Finance"
+        self.select = get_execute_request_without_params(request)
+        for j in self.select:
+            fenetre.insert("", END, values=j)
 
+        # affichage du nombre d'évenements
+        param1="Non Payée"
+        param2="Payée"
+        request1="select * from Finance where status=?"
+        request2="select * from Finance where status=?"
+        NbrFactureTraites = len(get_execute_request_with_params(request1,param2))
+        NbrFactureNonTraites = len(get_execute_request_with_params(request2,param1))
+        Label(self.page,text=f"vous avez {str(NbrFactureNonTraites)} factures non traités et {str(NbrFactureTraites)} factures en cours"
+                , font=self.fonts, bg="#05716c", fg="white").place(x=self.width - 780, y=self.height - 100)
 
         self.page.place(x=200, y=51)

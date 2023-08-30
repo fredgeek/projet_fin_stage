@@ -2,6 +2,10 @@ from tkinter import *
 from tkcalendar import *
 from tkinter import messagebox as mb
 from tkinter.font import Font
+import random as rd
+
+from backend.requests_db import set_execute_request_with_params
+
 
 class ajout_facture:
 
@@ -17,20 +21,26 @@ class ajout_facture:
 
         ############### entrer la date d'enregistrement de la facture ########################
         Label(self.page, text="Date d'entrer :",fg="black", font=("Arial",14,"bold"),bg="#05716c").place(x=120,y=80)
-        self.dat = DateEntry(self.page, bg="#05716c")
+        self.dat = DateEntry(self.page, bg="#05716c",state="readonly")
         self.dat.place(x=290,y=84)
 
         ############################## choisissez si c'est un encaissement ou un decaissement #######################
         Label(self.page, text="Est-ce un encaissement ou un décaissement? ",fg="black", font=("Arial",14,"bold"),bg="#05716c").place(x=120,y=120)
-        i=IntVar()
-        Radiobutton(self.page, text="Encaissement",value=1,variable=i,activeforeground="white",activebackground="#05716c",fg="black", bg="#05716c",font=("Arial",14,"italic")).place(x=120,y=150)
-        Radiobutton(self.page, text="Décaissement",value=2, variable=i,activeforeground="white",activebackground="#05716c",fg="black", bg="#05716c",font=("Arial",14,"italic")).place(x=280,y=150)
+        self.i=StringVar()
+        button1 = Radiobutton(self.page, text="Encaissement",value="Encaissement",variable=self.i,activeforeground="black",activebackground="#05716c",fg="black", bg="#05716c",font=("Arial",14,"italic"))
+        button1.place(x=120,y=150)
+        button2=Radiobutton(self.page, text="Décaissement",value="Décaissement", variable=self.i,activeforeground="black",activebackground="#05716c",fg="black", bg="#05716c",font=("Arial",14,"italic"))
+        button2.place(x=280,y=150)
+        button1.invoke()
+
 ##################### bouton des facture traités et non traités ###############################
-        Label(self.page, text="STATUS : ",fg="white", font=("Arial",14,"bold"),bg="#05716c").place(x=120,y=200)
-        Radiobutton(self.page, text="Traité", value=1, variable=i,activebackground="#05716c",activeforeground="black",fg="black", bg="#05716c", font=("Arial", 12, "italic")
-                    ).place(x=250, y=200)
-        Radiobutton(self.page, text="Non Traité",value=2, variable=i,activebackground="#05716c",fg="black",activeforeground="white", bg="#05716c", font=("Arial", 12, "italic")
-                    ).place(x=350, y=200)
+        Label(self.page, text="STATUS : ",fg="black", font=("Arial",14,"bold"),bg="#05716c").place(x=120,y=200)
+        self.j=StringVar()
+        bouton1 = Radiobutton(self.page, text="Traité", value="Payée", variable=self.j,activebackground="#05716c",activeforeground="black",fg="black", bg="#05716c", font=("Arial", 12, "italic"))
+        bouton1.place(x=250, y=200)
+        bouton2 = Radiobutton(self.page, text="Non Traité",value="Non Payée", variable=self.j,activebackground="#05716c",fg="black",activeforeground="white", bg="#05716c", font=("Arial", 12, "italic"))
+        bouton2.place(x=350, y=200)
+        bouton1.invoke()
 
         ####################  entrer la date de payement si disponible ####################################
         #Label(self.page, text="Date de payement(facultative) :", fg="black", font=("Arial",14, "bold"), bg="yellow").place(x=120, y=180)
@@ -63,10 +73,37 @@ class ajout_facture:
         self.page.place(x=200, y=51)
 
     def enregistre(self):
-            mb.askyesno("confirmer","vous confirmer que les informations entrez sont correctes? ")
+            test=mb.askyesno("confirmer","vous confirmer que les informations entrez sont correctes? ")
+            if test:
+                self.finance_ajout()
     def supprimer(self):
             test=mb.askyesno("confirmer","Voulez- vous vraiment vider tous les champs ? ")
             if test:
                 self.motif.delete(0,END)
                 self.montant.delete(0,END)
                 self.dat.delete(0,END)
+
+    def finance_ajout(self):
+
+        id = rd.randint(100,900) +  rd.randint(1,9) +  rd.randint(10,90)
+
+        date = self.dat.get()
+        type = self.i.get()
+        status = self.j.get()
+        montant = self.montant.get()
+        motif = self.motif.get()
+
+        if date == "" or montant == "" or motif == "":
+            mb.showwarning("Avertissement","Veuillez remplir tous les champs")
+
+        else:
+            params=(id,motif,montant,date,status,type)
+            request="insert into Finance values(?,?,?,?,?,?)"
+
+            try:
+                set_execute_request_with_params(request, params)
+                mb.showinfo("enregistrer", "vos informations ont bien été enregistrer")
+
+            except Exception :
+                mb.showwarning('Erreur', "Erreur d'enregistrement")
+

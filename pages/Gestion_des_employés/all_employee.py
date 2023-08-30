@@ -23,17 +23,21 @@ class all_employer:
 
         #creation de notre treeview
 
-        fenetre=ttk.Treeview(self.page,columns = (1,2,3,4),heigh=5, show = "headings")
+        fenetre=ttk.Treeview(self.page,columns = (1,2,3,4,5),heigh=5, show = "headings")
 
         fenetre.heading(1,text="Id")
         fenetre.heading(2,text="Nom")
         fenetre.heading(3,text="Email")
         fenetre.heading(4,text="Contacts")
+        fenetre.heading(5,text="sexe")
+
 
         fenetre.column(1,width=50)
         fenetre.column(2,width=50)
         fenetre.column(3,width=50)
         fenetre.column(4,width=50)
+        fenetre.column(5,width=50)
+
 
 
 

@@ -30,7 +30,8 @@ class HomePage:
 
     ################# barre de présentation en haut ########################
         self.presentationPart = Canvas(self.page,width=self.width,height=50,bg="#05716c")
-        username= "yac "
+        from pages.authentication.login_page import LoginPage
+        username="fred"
         Label(self.presentationPart,text="Bienvenue Mr. "+username+" dans votre espace perso",font=("Arial",28,"italic"),bg="#05716c").place(x=300,y=7)
 
         Button(self.presentationPart, text="Accueil", bg="#05716c"
@@ -42,8 +43,6 @@ class HomePage:
         self.presentationPart.place(x=0,y=0)
 
     ##################    fin de la barre de presentation  ################################
-
-        from pages.authentication.login_page import LoginPage
 
     ########## menus des fonctionnalités  #####################
 

@@ -44,8 +44,8 @@ class RegisterPage:
         self.sexe=ttk.Combobox(self.page,values=("Homme","Femme"),width=34,state="readonly")
         self.sexe.current(0)
         self.sexe.place(x=790,y=370)
-        Button(self.page,text="         Effacer         ",font=self.fonts,bg="orange",fg="white",bd=0
-          ,command=self.effacer     ).place(x=580,y=440)
+        Button(self.page,text="         Effacer         ",font=self.fonts,bg="orange",fg="white",bd=0,command=self.effacer
+               ).place(x=580,y=440)
         
             
         Button(self.page,text="        S'inscrire        ",font=self.fonts,bg="blue",fg="white",bd=0,command=self.register
@@ -65,7 +65,7 @@ class RegisterPage:
         self.page.place(x=0,y=0)
 
     def effacer(self):
-        test=mb.askyesno("confirmer","vous confirmer que les informations entrez sont correctes")
+        test=mb.askyesno("Effacer","Tous les champs vont etre effacer!!")
         if test:
             self.fullname.delete(0,END)
             self.email.delete(0,END)
@@ -95,10 +95,10 @@ class RegisterPage:
             request = "insert into User values(?,?,?,?,?,?)"
             try :
                 info_user=set_execute_request_with_params(request,params)
-                mb.showinfo("enregistrer","vos informations ont bien été enregistrer")
-                #data = get_execute_request_without_params(request)
+                mb.showinfo("enregitrer","vos information on bien ete enregistrer")  
+                # user_info = get_execute_request_without_params(request)
 
-                #print("All username : ",data)
+                print("All username : ",info_user)              
                 call([HomePage(self.page,self.width,self.height)])
             except Exception as e:
                 print('Erreur :',e)

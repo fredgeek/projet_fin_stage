@@ -17,7 +17,8 @@ class gest_stats:
               ,font=self.font,bg="#444444").place(x=self.width/2- 350,y=10)
         ###################### creation du premier frame client ##############################
         Label(self.page,text="Clients :",font=self.font,bg="#444444").place(x=self.width/4 -170,y=self.height/4)
-        nombreClients = 6
+        request = "select * from Event "
+        nombreClients = len(get_execute_request_without_params(request))
         new=Frame(self.page,relief=SUNKEN,bd=1)
 
         Label(new,text="vous avez actuellement enregistrez \n"+str(nombreClients)+"\n client(s)"
@@ -39,7 +40,8 @@ class gest_stats:
         #######################  creation du frame evenements  ###############################
 
         Label(self.page, text="Evénements :", font=self.font, bg="#444444").place(x=self.width /4 -170, y=self.height/2 +50)
-        nombre_event = 10
+        request3 = "select * from Event "
+        nombre_event = len(get_execute_request_without_params(request3))
         test = Frame(self.page, relief=SUNKEN, bd=1)
 
         Label(test, text="vous avez actuellement enregistrez \n" + str(nombre_event) + "\n évenement(s)"
@@ -50,8 +52,9 @@ class gest_stats:
 ##################################  cration du frame des transactions  ############################
 
         Label(self.page, text="Transactions :", font=self.font, bg="#444444").place(x=self.width / 2 +50 ,
-                                                                                  y=self.height / 2 + 50)
-        nombre_transact = 20
+                                                                       y=self.height / 2 + 50)
+        request2 = "select * from Finance"
+        nombre_transact = len(get_execute_request_without_params(request2))
         test = Frame(self.page, relief=SUNKEN, bd=1)
 
         Label(test, text="vous avez actuellement effectuer \n" + str(nombre_transact) + "\n transaction(s)"

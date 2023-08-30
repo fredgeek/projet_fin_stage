@@ -16,24 +16,24 @@ class all_employer:
         self.font = Font(family="Helvetica", size=12, underline=True, slant="italic", weight="bold")
         Label(self.page,text="3.   Consulter la liste de vos employers " ,font=self.font, bg="#1978a5",fg="white" ).place(x=20,y=20)
 
-        # affichage du nombre d'employer
-        NbreEmployes=0
-        Label(self.page, text=f"vous avez {str(NbreEmployes)} Employés", font=self.fonts, bg="#1978a5",
-              fg="white").place(x=self.width-500, y=self.height-110)
 
         #creation de notre treeview
 
-        fenetre=ttk.Treeview(self.page,columns = (1,2,3,4),heigh=5, show = "headings")
+        fenetre=ttk.Treeview(self.page,columns = (1,2,3,4,5),heigh=5, show = "headings")
 
         fenetre.heading(1,text="Id")
         fenetre.heading(2,text="Nom")
         fenetre.heading(3,text="Email")
         fenetre.heading(4,text="Contacts")
+        fenetre.heading(5,text="sexe")
+
 
         fenetre.column(1,width=50)
         fenetre.column(2,width=50)
-        fenetre.column(3,width=50)
+        fenetre.column(3,width=100)
         fenetre.column(4,width=50)
+        fenetre.column(5,width=50)
+
 
 
 
@@ -41,8 +41,13 @@ class all_employer:
 
         request="select * from Employee "
 
-        select=get_execute_request_without_params(request)
-        for i in select:
+        self.select = get_execute_request_without_params(request)
+        for i in self.select:
             fenetre.insert('',END,values=i)
+
+         # affichage du nombre d'employer
+        NbreEmployes = len(self.select)
+        Label(self.page, text=f"vous avez {str(NbreEmployes)} Employés", font=self.fonts, bg="#1978a5",
+                  fg="white").place(x=self.width - 500, y=self.height - 110)
 
         self.page.place(x=200, y=51)

@@ -90,7 +90,7 @@ class add_event:
         statu=self.j.get()
         
         params = (id,self.meet_with.get(),sexe,self.phone.get(),self.lieu.get(),statu,self.reason_event.get(),self.date.get(),self.hour_event.get())
-        request = "insert into User values(?,?,?,?,?,?,?,?,?)"
+        request = "insert into Event values(?,?,?,?,?,?,?,?,?)"
         try:
             info_user=set_execute_request_with_params(request,params)
             mb.showinfo("enregitrer","L'événement a été enregistré")

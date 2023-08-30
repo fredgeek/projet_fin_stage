@@ -3,6 +3,8 @@ from tkinter import messagebox as mb
 import random as rd
 from tkinter.font import Font
 
+from backend.requests_db import set_execute_request_with_params
+
 
 class ajout_clients:
     def __init__(self, root, width, height):
@@ -34,6 +36,7 @@ class ajout_clients:
         boutonhomme.place(x=380, y=230)
         boutonfemme=Radiobutton(self.page, text="Femme", value="Femme", variable=self.i, bg="#333333", activebackground="#333333",activeforeground="black")
         boutonfemme.place(x=470, y=230)
+        boutonhomme.invoke()
         
         self.bouton=Button(self.page, text="Enregistrer", font=self.fonts, bg="blue", fg="cadetblue1" , activebackground="#333333", activeforeground="blue", command=self.enregistre)
         self.bouton.place(x=215, y=450)
@@ -57,18 +60,37 @@ class ajout_clients:
         self.page.place(x=200, y=51)
 
     def enregistre(self):
-       question = mb.askyesno("confirmation", "vous confirmer que les informations entrez sont correctes? ")
-       if question:
-           try:
-               pass
-           
-           
-           except Exception as e:
-            print('Erreur :',e)
-            
-       else:
-           mb.showinfo("Verification","verifier les information du client") 
+        if (self.nom.get()=="" or self.email.get()=="" or self.tel.get()=="" or self.quat.get()=="" or self.ville.get()=="" or self.sect_acti.get()==""):
+            mb.showwarning("Avertisement","veuillez remplir tout les champs.")
+        elif self.email.get()[-10:] !="@gmail.com":
+            mb.showwarning("Avertisement","Entrez un email correct.")
+        else :
+            question = mb.askyesno("confirmation", "vous confirmer que les informations entrez sont correctes? ")
+            if question:
+                
+                id = rd.randint(100,900) +  rd.randint(1,9) +  rd.randint(10,90)
+                nom=self.nom.get()
+                mail=self.email.get()
+                phon=self.tel.get()
+                sex=self.i.get()
+                quartier=self.quat.get()
+                ville=self.ville.get()
+                sec_activi=self.sect_acti.get()
+                params=(id,nom,mail,phon,ville,sec_activi,sex,quartier)
+                request = "insert into Client values(?,?,?,?,?,?,?,?)"
+                try:
+                    info_user=set_execute_request_with_params(request,params)
+                    mb.showinfo("Enregistrer","Le client a été  enregistré.")
+                    print(info_user)
 
+                
+                except Exception as e:
+                    print('Erreur :',e)
+                    
+            else:
+                mb.showinfo("Verification","Verifier donc les informations") 
+            
+            
     def effacer(self):
         test=mb.askyesno("confirmer", "Voulez- vous vraiment vider tous les champs ? ")
         if test:

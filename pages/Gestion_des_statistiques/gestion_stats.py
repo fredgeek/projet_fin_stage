@@ -1,5 +1,9 @@
 from tkinter import *
 from tkinter.font import Font
+
+from backend.requests_db import get_execute_request_without_params
+
+
 class gest_stats:
 
     def __init__(self,root,width,height):
@@ -23,7 +27,8 @@ class gest_stats:
         #########################  creation du frame employes  #########################
 
         Label(self.page, text="Employers :", font=self.font, bg="#444444").place(x=self.width / 2 +50, y=self.height / 4)
-        nombre_employes = 7
+        request1 = "select * from Employee "
+        nombre_employes = len(get_execute_request_without_params(request1))
         emploi= Frame(self.page, relief=SUNKEN, bd=1)
 
         Label(emploi, text="vous avez actuellement  enregistrez\n" + str(nombre_employes) + "\n employer(s)"

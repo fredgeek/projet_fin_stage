@@ -44,14 +44,14 @@ class all_spending:
         for j in self.select:
             fenetre.insert("", END, values=j)
 
-        # affichage du nombre d'évenements
-        param1="Non Payée"
-        param2="Payée"
-        request1="select * from Finance where status=?"
-        request2="select * from Finance where status=?"
-        NbrFactureTraites = len(get_execute_request_with_params(request1,param2))
-        NbrFactureNonTraites = len(get_execute_request_with_params(request2,param1))
-        Label(self.page,text=f"vous avez {str(NbrFactureNonTraites)} factures non traités et {str(NbrFactureTraites)} factures en cours"
-                , font=self.fonts, bg="#05716c", fg="white").place(x=self.width - 780, y=self.height - 100)
+        # # affichage du nombre d'évenements
+        # param1="Non Payée"
+        # param2="Payée"
+        # request1="select * from Finance where status=?"
+        # request2="select * from Finance where status=?"
+        # NbrFactureTraites = len(get_execute_request_with_params(request1,param2))
+        # NbrFactureNonTraites = len(get_execute_request_with_params(request2,param1))
+        # Label(self.page,text=f"vous avez {str(NbrFactureNonTraites)} factures non traités et {str(NbrFactureTraites)} factures en cours"
+        #         , font=self.fonts, bg="#05716c", fg="white").place(x=self.width - 780, y=self.height - 100)
 
         self.page.place(x=200, y=51)

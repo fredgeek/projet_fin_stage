@@ -64,6 +64,8 @@ class ajout_clients:
             mb.showwarning("Avertisement","veuillez remplir tout les champs.")
         elif self.email.get()[-10:] !="@gmail.com":
             mb.showwarning("Avertisement","Entrez un email correct.")
+        elif (self.tel.get().isdigit()==False):
+            mb.showwarning("Avertissement","Mauvais numero.")
         else :
             question = mb.askyesno("confirmation", "vous confirmer que les informations entrez sont correctes? ")
             if question:

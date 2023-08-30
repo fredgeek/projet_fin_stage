@@ -42,14 +42,14 @@ class delete_clients:
             if question:
                 email=self.email.get()
                 params = (email)
-                request_select = "select * from Client where (email=?)"
-                info_request = get_execute_request_with_params(request_select, params)
+                request_select = "select * from Client where email=?"
+                info_request = get_execute_request_with_params(request_select,[params])
                 if len(info_request)==0:
                     mb.showinfo("Avertissement","l'email entré n'existe pas , recommencer.")
                 else:
-                    request_supprimer="delete from Client where (email=?) " 
+                    request_supprimer="delete from Client where email=? " 
                     try:
-                        set_execute_request_with_params(request_supprimer, params)
+                        set_execute_request_with_params(request_supprimer,[params])
                         mb.showinfo("supprimer","le cient a été supprimer.")
                     except:
                         mb.showerror("Erreur"," une erreur c'est produit")   

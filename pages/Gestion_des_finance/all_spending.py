@@ -22,11 +22,11 @@ class all_spending:
         fenetre = ttk.Treeview(self.page,columns = (1,2,3,4,5,6),heigh=5, show = "headings")
 
         fenetre.heading(1,text="ID")
-        fenetre.heading(2,text="Encaissement/Décaissement")
-        fenetre.heading(3,text="date d'entrer")
-        fenetre.heading(4,text="Montant")
-        fenetre.heading(5,text="Motif de la facture")
-        fenetre.heading(6,text="Status")
+        fenetre.heading(2,text="Motif de la facture")
+        fenetre.heading(3,text="Montant")
+        fenetre.heading(4,text="Date d'entrer")
+        fenetre.heading(5,text="Status")
+        fenetre.heading(6,text="type_transaction")
 
 
         fenetre.column(1,width=50)
@@ -45,13 +45,15 @@ class all_spending:
             fenetre.insert("", END, values=j)
 
         # affichage du nombre d'évenements
+
         param1="Non Payée"
         param2="Payée"
         request1="select * from Finance where status=?"
+        self.NbrFactureTraites = get_execute_request_with_params(request1, [param2])
         request2="select * from Finance where status=?"
-        NbrFactureTraites = len(get_execute_request_with_params(request1,param2))
-        NbrFactureNonTraites = len(get_execute_request_with_params(request2,param1))
-        Label(self.page,text=f"vous avez {str(NbrFactureNonTraites)} factures non traités et {str(NbrFactureTraites)} factures en cours"
-                , font=self.fonts, bg="#05716c", fg="white").place(x=self.width - 780, y=self.height - 100)
+        self.NbrFactureNonTraites = get_execute_request_with_params(request2,[param1])
+        Label(self.page,text=f"vous avez {len(self.NbrFactureNonTraites)} factures impayée et {len(self.NbrFactureTraites)} factures en payée"
+            , font=self.fonts, bg="#05716c", fg="white").place(x=self.width - 780, y=self.height - 100)
+
 
         self.page.place(x=200, y=51)

@@ -68,7 +68,7 @@ class ajout_employer :
         if nom=="" or email=="" or tel=="":
             mb.showwarning("Avertissement","Veuiller remplir tous les champs")
         elif email[-10:] != "@gmail.com":
-            mb.showwarning("Erreur", "Entre un mail correct")
+            mb.showwarning("Erreur", "Entrer un mail correct")
         else :
             params=(id,nom,email,tel,sexe)
            
@@ -82,6 +82,3 @@ class ajout_employer :
 
             except Exception as e:
                 print('Erreur :', e)
-
-
-

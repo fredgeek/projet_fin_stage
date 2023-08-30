@@ -1,6 +1,10 @@
 from tkinter import *
 from tkinter import messagebox as mb
 from tkinter.font import Font
+
+from backend.requests_db import set_execute_request_with_params, get_execute_request_without_params,get_execute_request_with_params
+
+
 class delete_employer :
     def __init__(self,root,width,height):
         self.fonts = ('Arial',14,'bold')
@@ -33,7 +37,9 @@ class delete_employer :
         self.page.place(x=200,y=51)
 
     def enregistre(self):
-        mb.askyesno("confirmer", "vous confirmer que les informations entrez sont correctes? ")
+        test = mb.askyesno("confirmer", "vous confirmer que les informations entrez sont correctes? ")
+        if test:
+            self.suppr_employee()
 
     def supprimer(self):
         test=mb.askyesno("confirmer", "Voulez- vous vraiment vider tous les champs ? ")
@@ -44,5 +50,31 @@ class delete_employer :
 
 
     def suppr_employee(self):
+        nom=self.nom.get()
+        email=self.email.get()
+        tel=self.tel.get()
 
-        id = rd.randint(100,900) +  rd.randint(1,9) +  rd.randint(10,90)
+
+        #testez si tous les champs sont remplies
+        request = "select * from Employee where (fullname=? and email=? and phone=?)"
+        params = (nom,email,tel)
+        data = get_execute_request_with_params(request, params)
+
+        if nom=="" or email=="" or tel=="" :
+            mb.showwarning("Avertissement","Veuillez remplir tous les champs")
+        elif email[-10:] != "@gmail.com":
+            mb.showwarning("Erreur","Entrez un mail correct.")
+        else:
+            if len(data)==0:
+                mb.showinfo("Avertissement","les informations entrez n'existe pas!!")
+
+            else:
+                request1="delete from Employee where (fullname=? and email=? and phone=?)"
+                try:
+                    set_execute_request_with_params(request1, params)
+                    mb.showinfo("enregistrez","Vos modifications ont bien été ajoutée")
+                except:
+                    mb.showerror("Erreur","Erreur d'enregistrement")
+
+
+

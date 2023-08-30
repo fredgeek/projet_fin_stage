@@ -46,18 +46,14 @@ class ajout_employer :
           #  command=lambda :HomePage(self.page, width=800, height=500),font=self.fonts, bg="#333333",fg="cadetblue1").place(x=510, y=320)
         self.page.place(x=200,y=51)
 
-    def enregistre(self):
-            test=mb.askyesno("confirmer","vous confirmer que les informations entrez sont correctes? ")
-            if test:
-                self.employee_ajout()
     def supprimer(self):
-        text=mb.askyesno("confirmer","Voulez- vous vraiment vider tous les champs ? ")
+        text=mb.askyesno("confirmer","voulez vous vider tout les champ? ")
         if text:
             self.email.delete(0, END)
             self.nom.delete(0, END)
             self.tel.delete(0, END)
 
-    def employee_ajout(self):
+    def enregistre(self):
 
         id = rd.randint(100,900) +  rd.randint(1,9) +  rd.randint(10,90)
 
@@ -75,15 +71,14 @@ class ajout_employer :
             mb.showwarning("Erreur", "Entre un mail correct")
         else :
             params=(id,nom,email,tel,sexe)
-            request1 = "select * from Employee"
+           
 
             request="insert into Employee values(?,?,?,?,?)"
             try :
                 test=set_execute_request_with_params(request,params)
                 mb.showinfo("enregistrer", "vos informations ont bien été enregistrer")
-                data = get_execute_request_without_params(request1)
 
-                print("All clients : ",data)
+                print("All clients : ",test)
 
             except Exception as e:
                 print('Erreur :', e)

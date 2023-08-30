@@ -36,9 +36,9 @@ class ajout_facture:
 ##################### bouton des facture traités et non traités ###############################
         Label(self.page, text="STATUS : ",fg="black", font=("Arial",14,"bold"),bg="#05716c").place(x=120,y=200)
         self.j=StringVar()
-        bouton1 = Radiobutton(self.page, text="Traité", value="Payée", variable=self.j,activebackground="#05716c",activeforeground="black",fg="black", bg="#05716c", font=("Arial", 12, "italic"))
+        bouton1 = Radiobutton(self.page, text="Payée", value="Payée", variable=self.j,activebackground="#05716c",activeforeground="black",fg="black", bg="#05716c", font=("Arial", 12, "italic"))
         bouton1.place(x=250, y=200)
-        bouton2 = Radiobutton(self.page, text="Non Traité",value="Non Payée", variable=self.j,activebackground="#05716c",fg="black",activeforeground="white", bg="#05716c", font=("Arial", 12, "italic"))
+        bouton2 = Radiobutton(self.page, text="Non Payée",value="Non Payée", variable=self.j,activebackground="#05716c",fg="black",activeforeground="white", bg="#05716c", font=("Arial", 12, "italic"))
         bouton2.place(x=350, y=200)
         bouton1.invoke()
 

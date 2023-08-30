@@ -1,7 +1,6 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter.font import Font
-
 from backend.requests_db import get_execute_request_without_params
 
 
@@ -46,8 +45,13 @@ class all_employer:
             fenetre.insert('',END,values=i)
 
          # affichage du nombre d'employer
-        NbreEmployes = len(self.select)
-        Label(self.page, text=f"vous avez {str(NbreEmployes)} Employés", font=self.fonts, bg="#1978a5",
+        self.nbreemployes = len(self.select)
+        Label(self.page, text=f"vous avez {str(self.nbreemployes)} Employés", font=self.fonts, bg="#1978a5",
                   fg="white").place(x=self.width - 500, y=self.height - 110)
 
+
         self.page.place(x=200, y=51)
+
+
+
+

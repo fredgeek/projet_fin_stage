@@ -77,8 +77,9 @@ class ajout_employer :
             try :
                 test=set_execute_request_with_params(request,params)
                 mb.showinfo("enregistrer", "vos informations ont bien été enregistrer")
+                #data = get_execute_request_without_params(request1)
 
-                print("All clients : ",test)
+                #print("All clients : ",data)
 
             except Exception as e:
                 print('Erreur :', e)

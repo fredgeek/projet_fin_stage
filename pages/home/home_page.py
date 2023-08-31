@@ -18,7 +18,7 @@ from pages.home.boutton_compte import mon_compte
 
 class HomePage:
 
-    def __init__(self,root,width,height,username,tel,email,password):
+    def __init__(self,root,width,height,username):
         # dimensions de la fenetre
         self.width = width
         self.height = height

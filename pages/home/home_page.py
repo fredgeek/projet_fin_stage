@@ -32,7 +32,7 @@ class HomePage:
         self.presentationPart = Canvas(self.page,width=self.width,height=50,bg="#05716c")
         from pages.authentication.login_page import LoginPage
         Nom=self.nom
-        Label(self.presentationPart,text="Bienvenue Mr. "+str(Nom)+" dans votre espace de travail",font=("Arial",28,"italic"),bg="#05716c").place(x=280,y=4)
+        Label(self.presentationPart,text="Bienvenue cher(e) "+str(Nom)+" dans votre espace de travail",font=("Arial",28,"italic"),bg="#05716c").place(x=280,y=4)
 
         Button(self.presentationPart, text="Accueil", bg="#05716c"
                , width=13, height=1, fg="black", font=("arial", 14, "italic"), bd=0
@@ -52,7 +52,7 @@ class HomePage:
         Button(self.fonction, text=" Mon Compte", bg="#315f72"
                , width=13, height=1, fg="black",font=("arial",14,"bold"),bd=0
                ,activebackground="#315f72"
-               ,activeforeground="white",command=lambda : mon_compte(self.page,self.width,self.height)).place(x=15, y=12)
+               ,activeforeground="white",command=lambda : mon_compte(self.page,self.width,self.height,self.nom)).place(x=15, y=12)
 
         ########## creation du menu des finances  ###########################
 
@@ -115,25 +115,20 @@ class HomePage:
         menu_des_statistiques=Button(self.fonction, text=" Statistiques "
                , bg="#315f72", width=13, height=1, fg="black", font=("arial", 14, "bold"),relief=FLAT
                                      ,activebackground="#315f72",activeforeground="white",command=lambda:gest_stats(self.page,self.width,self.height))
-        #menu = Menu(menu_des_statistiques, tearoff=0)
-        #menu_des_statistiques["menu"] = menu
-        #menu.add_command(label="Nbre.Employes",activebackground="blue",activeforeground="white",command=lambda:Nbr_employer(self.page,self.width,self.height))
-        #menu.add_command(label="Nbre.Clients",activebackground="blue",activeforeground="white",command=lambda:Nbr_clients(self.page,self.width,self.height))
-        #menu.add_command(label="Nbre.Transactions",activebackground="blue",activeforeground="white",command=lambda:Nbr_transactions(self.page,self.width,self.height))
-        #menu.add_command(label="Nbre.Evenements",activebackground="blue",activeforeground="white",command=lambda:Nbr_evenements(self.page,self.width,self.height))
         menu_des_statistiques.place(x=4, y=310)
 
         #creation du bouton se deconnecter
-        Button(self.fonction, text=" se deconnecter ",bg="#315f72",bd=0,width=13,height=1,fg="red"
+        Button(self.fonction, text=" Deconnexion ",bg="#315f72",bd=0,width=13,height=1,fg="red"
                ,command =lambda: LoginPage(self.page,self.width,self.height),activebackground="#315f72"
                ,activeforeground="white",font=("arial",14,"italic")).place(x=6,y=self.height-100)
         self.fonction.place(x=0,y=51)
-    ############ fin de la barre des fonctionnalités #########################
+        ############ fin de la barre des fonctionnalités #########################
 
-########### place de presentation des fonctionnalités #########################
+        ########### place de presentation des fonctionnalités #########################
         self.img = PhotoImage(file="accueil-entreprise.png").zoom(25).subsample(13)
         self.present = Canvas(self.page,width=self.width-200,height=self.height-51,bg="aqua")
         Label(self.present, image=self.img).place(x=0,y=0)
+        Label(self.present, text="DIS BUSINESS GROUP SARL",font=('Arial',30,'bold')).place(x=210, y=20)
 
 
 

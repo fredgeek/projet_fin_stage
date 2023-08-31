@@ -7,8 +7,8 @@ import random as rd
 from tkinter import messagebox as mb
 from tkinter import ttk
 
-from backend.requests_db import get_execute_request_without_params, set_execute_request_with_params
-
+from backend.requests_db import get_execute_request_without_params, set_execute_request_with_params, \
+    get_execute_request_with_params
 
 
 class RegisterPage:
@@ -28,7 +28,7 @@ class RegisterPage:
         Label(self.page, image=self.image, bg="#1c141f").place(x=30, y=60)
 
         Label(self.page,text="Créer un compte. " ,font=self.fonts ,bg="#1c141f",fg="pink" ).place(x=580,y=80)
-        Label(self.page,text="NOM COMPLET : ",font=self.fonts,bg="#1c141f",fg="pink" ).place(x=580,y=160)
+        Label(self.page,text="NOM UTILISATEUR : ",font=self.fonts,bg="#1c141f",fg="pink" ).place(x=580,y=160)
         self.fullname=Entry(self.page,font=self.fonts)
         self.fullname.place(x=790,y=160)
         Label(self.page,text="EMAIL : ",font=self.fonts,bg="#1c141f",fg="pink").place(x=580,y=215)
@@ -84,13 +84,23 @@ class RegisterPage:
         email=self.email.get()
         phone=self.contact.get()
         gender=self.sexe.get()
+
+        requetVerifie="select * from User where fullname=?"
+        paramVerifie=fullname
+
+        test=len(get_execute_request_with_params(requetVerifie,[paramVerifie]))
+
         #  test si tous les champ sont remplis
+
         if fullname=="" or password=="" or email=="" or phone=="" or gender=="" :
             mb.showwarning("Avertisement!!","veillez remplir tout les champs.")
         elif email[-10:] != "@gmail.com":
             mb.showwarning("Erreur","Entre un mail correct")
         elif (phone.isdigit()==False):
             mb.showwarning("Erreur","Mauvais numero!!!")
+
+        elif test > 0:
+            mb.showwarning("Erreur","Ce nom est déja utilisé veiullé entré un autre!!!")
         else:
             params = (id,fullname,password,email,phone,gender)
             #request = "select * from User"
@@ -101,7 +111,7 @@ class RegisterPage:
                 # user_info = get_execute_request_without_params(request)
 
                 print("All username : ",info_user)              
-                call([HomePage(self.page,self.width,self.height,self.fullname.get())])
+                call([HomePage(self.page,self.width,self.height,fullname)])
             except Exception as e:
                 print('Erreur :',e)
             

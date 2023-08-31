@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import messagebox as mb
 from subprocess import call
 from backend.requests_db import get_execute_request_with_params
+from pages.authentication.forget_password import ForgetPassword
 
 from pages.authentication.register_page import RegisterPage
 
@@ -42,7 +43,10 @@ class LoginPage:
                ,command=self.connection).place(x=605,y=380)
 
 
+              #demander a l'utilisateur si il a oublie son mot de passe
 
+              Button(self.page, text=" Mot de passe oublie ? ",fg="#fff",font=("arial",13),
+                     bg="#1c141f",bd=0,command = lambda: ForgetPassword(self.page,self.width,self.height)).place(x=745,y=317)
               Button(self.page, text=" Créer un compte ? ",fg="#fff",font=("arial",13),bg="#1c141f",bd=0,
                      command = lambda: RegisterPage(self.page,self.width,self.height)).place(x=690,y=460)
 
@@ -65,11 +69,13 @@ class LoginPage:
                      mb.showwarning("Attention ","Veillez entrer votre mot de passe !")
               elif self.username.get() !="" and self.password.get() !="":
                      if len(data)==0:
+
                             mb.showinfo("Avertissement", "Vous n'etes pas inscrit !")
-                     elif data[0][2] == self.password.get():
+                     elif str(data[0][2]) == self.password.get():
                             mb.showinfo("Yeeeesoh","Vous etes inscrit !")
                             call([HomePage(self.page,self.width,self.height,self.username.get())])
                      else:
-                            mb.showinfo("Ekkieuuuu","Mot de pase incorrect !")
+                            print('erreur : ', data)
+                            mb.showinfo("Avertissement","Mot de pase incorrect !")
 
               #call([HomePage(self.page,self.width,self.height)])

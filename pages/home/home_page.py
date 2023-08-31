@@ -52,7 +52,7 @@ class HomePage:
         Button(self.fonction, text=" Mon Compte", bg="#315f72"
                , width=13, height=1, fg="black",font=("arial",14,"bold"),bd=0
                ,activebackground="#315f72"
-               ,activeforeground="white",command=lambda : mon_compte(self.page,self.width,self.height,tel,email,password)).place(x=15, y=12)
+               ,activeforeground="white",command=lambda : mon_compte(self.page,self.width,self.height)).place(x=15, y=12)
 
         ########## creation du menu des finances  ###########################
 

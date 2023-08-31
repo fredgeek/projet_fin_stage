@@ -35,9 +35,9 @@ class add_event:
         
         Label(self.page, text="STATUS : ", fg="pink", font=("Arial", 14, "bold"), bg="#1978a5").place(x=175, y=245)
         self.j = StringVar()
-        boutontraite=Radiobutton(self.page, text="Traité", value="Traité", variable=self.j, bg="#1978a5", font=("Arial", 12, "italic"),activebackground="#333333")
+        boutontraite=Radiobutton(self.page, text="Traité", value="Effectué", variable=self.j, bg="#1978a5", font=("Arial", 12, "italic"),activebackground="#333333")
         boutontraite.place(x=270, y=245)
-        boutonNontraite=Radiobutton(self.page, text="Non Traité", value="Non Traité", variable=self.j, bg="#1978a5", font=("Arial", 12, "italic"),activebackground="#333333")
+        boutonNontraite=Radiobutton(self.page, text="Non Traité", value="Non Effectué", variable=self.j, bg="#1978a5", font=("Arial", 12, "italic"),activebackground="#333333")
         boutonNontraite.place(x=350, y=245)
         boutontraite.invoke()
         
@@ -46,16 +46,13 @@ class add_event:
         self.date.place(x=420, y=295,width=160)
         
         Label(self.page, text="Heure du rendez-vous : ", font=self.fonts, bg="#1978a5", fg="pink").place(x=175, y=340)
-        self.heur=Spinbox(self.page,from_=00, to=24, width=3,state="readonly")
+        self.heur=Spinbox(self.page,from_=00, to=24, width=3)
         self.heur.place(x=420, y=345)
         Label(self.page,text="H",bg="#1978a5",fg="pink",width=1).place(x=450,y=345)
-        self.min=Spinbox(self.page, from_=00, to=60, width=3,state="readonly")
+        self.min=Spinbox(self.page, from_=00, to=60, width=3)
         self.min.place(x=465, y=345)
         Label(self.page, text="Mins",width=3,bg="#1978a5",fg="pink").place(x=500,y=345)
-        self.heure=f"{self.heur.get()} : {self.min.get()}"
 
-        print(self.heure)
-        
         Label(self.page, text="Motif du rendez-vous : ", font=self.fonts, bg="#1978a5", fg="pink").place(x=175, y=380)
         self.reason_event=Entry(self.page, font=self.fonts)
         self.reason_event.place(x=420, y=380, width=200)
@@ -73,8 +70,8 @@ class add_event:
         Label(self.page, text="Pour modifier le status d'une factutre pré-enregistrez, cliquez ici : "
               , fg="white", font=("Arial", 9, "bold"), bg="yellow").place(x=width- 200, y=height - 100)
 
-        Button(self.page, text="  Modif.stat  ", font=("arial", 9, "italic"), bg="blue", fg="white",
-               activebackground="#1978a5").place(x=width / 2 + 70, y=height - 100)
+        #Button(self.page, text="  Modif.stat  ", font=("arial", 9, "italic"), bg="blue", fg="white",
+         #      activebackground="#1978a5").place(x=width / 2 + 70, y=height - 100)
 
         self.page.place(x=200, y=51)
     def effacer(self):
@@ -90,22 +87,23 @@ class add_event:
             mb.showwarning("Avertissement","Veuiller remplir tous les champs")
         elif self.phone.get().isdigit()==False:
             mb.showwarning("Erreur","Numéro incorrect")
-        
-        id = rd.randint(100,900) +  rd.randint(1,9) +  rd.randint(10,90)
-        sexe=self.i.get()
-        statu=self.j.get()
-        
-        params = (id,self.meet_with.get(),sexe,self.phone.get(),self.lieu.get(),statu,self.reason_event.get(),self.date.get(),self.heure)
-        request = "insert into Event values(?,?,?,?,?,?,?,?,?)"
-        try:
-            info_user=set_execute_request_with_params(request,params)
-            mb.showinfo("enregitrer","L'événement a été enregistré")
-            self.reason_event.delete(0, END)
-            self.meet_with.delete(0, END)
-            self.lieu.delete(0, END)
-            self.phone.delete(0, END)
-        except Exception as e:
-            print('Erreur :',e)
+
+        else:
+            id = rd.randint(100, 900) + rd.randint(1, 9) + rd.randint(10, 90)
+            sexe = self.i.get()
+            statu = self.j.get()
+            params = (id, self.meet_with.get(), sexe, self.phone.get(), self.lieu.get(), statu, self.reason_event.get(),
+                      self.date.get(), f"{self.heur.get()} : {self.min.get()}")
+            request = "insert into Event values(?,?,?,?,?,?,?,?,?)"
+            try:
+                info_user = set_execute_request_with_params(request, params)
+                mb.showinfo("Enregitrer", "L'événement a été enregistré")
+                self.reason_event.delete(0, END)
+                self.meet_with.delete(0, END)
+                self.lieu.delete(0, END)
+                self.phone.delete(0, END)
+            except Exception as e:
+                print('Erreur :', "Erreur d'enregistrement!!!")
 
     
              

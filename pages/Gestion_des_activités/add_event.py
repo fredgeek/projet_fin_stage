@@ -1,7 +1,6 @@
 from tkinter import *
 import random as rd
 import tkcalendar as tk
-from subprocess import call
 from tkinter.font import Font
 from tkinter import messagebox as mb
 
@@ -47,10 +46,15 @@ class add_event:
         self.date.place(x=420, y=295,width=160)
         
         Label(self.page, text="Heure du rendez-vous : ", font=self.fonts, bg="#1978a5", fg="pink").place(x=175, y=340)
-        self.heur=Spinbox(self.page,from_=00, to=24, width=3).place(x=420, y=345)
+        self.heur=Spinbox(self.page,from_=00, to=24, width=3,state="readonly")
+        self.heur.place(x=420, y=345)
         Label(self.page,text="H",bg="#1978a5",fg="pink",width=1).place(x=450,y=345)
-        Spinbox(self.page, from_=00, to=60, width=3).place(x=465, y=345)
+        self.min=Spinbox(self.page, from_=00, to=60, width=3,state="readonly")
+        self.min.place(x=465, y=345)
         Label(self.page, text="Mins",width=3,bg="#1978a5",fg="pink").place(x=500,y=345)
+        self.heure=f"{self.heur.get()} : {self.min.get()}"
+
+        print(self.heure)
         
         Label(self.page, text="Motif du rendez-vous : ", font=self.fonts, bg="#1978a5", fg="pink").place(x=175, y=380)
         self.reason_event=Entry(self.page, font=self.fonts)
@@ -82,14 +86,14 @@ class add_event:
             self.phone.delete(0,END)
 
     def enregistre(self):
-        if self.meet_with=="" or self.phone=="" or self.lieu.get()=="" or self.reason_event.get():
+        if self.meet_with=="" or self.phone=="" or self.lieu.get()=="" or self.reason_event.get()=="" or self.heur=="0"  :
             mb.showwarning("Avertissement","Veuiller remplir tous les champs")
         
         id = rd.randint(100,900) +  rd.randint(1,9) +  rd.randint(10,90)
         sexe=self.i.get()
         statu=self.j.get()
         
-        params = (id,self.meet_with.get(),sexe,self.phone.get(),self.lieu.get(),statu,self.reason_event.get(),self.date.get(),self.hour_event.get())
+        params = (id,self.meet_with.get(),sexe,self.phone.get(),self.lieu.get(),statu,self.reason_event.get(),self.date.get(),self.heure)
         request = "insert into Event values(?,?,?,?,?,?,?,?,?)"
         try:
             info_user=set_execute_request_with_params(request,params)

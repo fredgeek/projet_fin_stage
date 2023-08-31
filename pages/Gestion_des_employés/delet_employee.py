@@ -28,11 +28,11 @@ class delete_employer :
         self.tel.place(x=280, y=330)
 
 
-        Button(self.page, text="Supprimer", font=self.fonts, bg="blue", fg="cadetblue1",activebackground="#1978a5",activeforeground="blue",command=self.enregistre)
-        Button.place(x=215, y=400)
+        button1 = Button(self.page, text="Supprimer", font=self.fonts, bg="blue", fg="cadetblue1",activebackground="#1978a5",activeforeground="blue",command=self.enregistre)
+        button1.place(x=215, y=400)
         
-        Button(self.page, text="vider le champs ", font=self.fonts, bg="orange", fg="cadetblue1",command=self.supprimer,activebackground="#1978a5",activeforeground="red")
-        Button.place(x=415, y=400)
+        button2 = Button(self.page, text="vider le champs ", font=self.fonts, bg="orange", fg="cadetblue1",command=self.supprimer,activebackground="#1978a5",activeforeground="red")
+        button2.place(x=415, y=400)
         
         
         self.page.place(x=200,y=51)

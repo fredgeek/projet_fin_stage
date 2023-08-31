@@ -101,7 +101,7 @@ class RegisterPage:
                 # user_info = get_execute_request_without_params(request)
 
                 print("All username : ",info_user)              
-                call([HomePage(self.page,self.width,self.height,self.fullname.get(),phone,email,password)])
+                call([HomePage(self.page,self.width,self.height,self.fullname.get())])
             except Exception as e:
                 print('Erreur :',e)
             

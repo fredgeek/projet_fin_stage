@@ -70,7 +70,7 @@ class LoginPage:
                             mb.showinfo("Avertissement", "Vous n'etes pas inscrit !")
                      elif data[0][2] == self.password.get():
                             mb.showinfo("Yeeeesoh","Vous etes inscrit !")
-                            call([HomePage(self.page,self.width,self.height)])
+                            call([HomePage(self.page,self.width,self.height,self.username.get(),tel,email,password)])
                      else:
                             mb.showinfo("Ekkieuuuu","Mot de pase incorrect !")
 

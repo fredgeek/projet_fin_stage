@@ -95,7 +95,8 @@ class ajout_facture:
 
         if date == "" or montant == "" or motif == "":
             mb.showwarning("Avertissement","Veuillez remplir tous les champs")
-
+        elif montant.isdigit()==False:
+            mb.showwarning("Erreur","Montant incorrect")
         else:
             params=(id,motif,montant,date,status,type)
             request="insert into Finance values(?,?,?,?,?,?)"
@@ -103,6 +104,9 @@ class ajout_facture:
             try:
                 set_execute_request_with_params(request, params)
                 mb.showinfo("enregistrer", "vos informations ont bien été enregistrer")
+                self.motif.delete(0, END)
+                self.montant.delete(0, END)
+                self.dat.delete(0, END)
 
             except Exception :
                 mb.showwarning('Erreur', "Erreur d'enregistrement")

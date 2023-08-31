@@ -42,7 +42,7 @@ class add_event:
         boutontraite.invoke()
         
         Label(self.page, text="Date du rendez-vous: ", font=self.fonts,bg="#1978a5", fg="pink").place(x=175, y=295)
-        self.date=tk.DateEntry(self.page)
+        self.date=tk.DateEntry(self.page,state="readonly")
         self.date.place(x=420, y=295,width=160)
         
         Label(self.page, text="Heure du rendez-vous : ", font=self.fonts, bg="#1978a5", fg="pink").place(x=175, y=340)
@@ -88,6 +88,8 @@ class add_event:
     def enregistre(self):
         if self.meet_with=="" or self.phone=="" or self.lieu.get()=="" or self.reason_event.get()=="" or self.heur=="0"  :
             mb.showwarning("Avertissement","Veuiller remplir tous les champs")
+        elif self.phone.get().isdigit()==False:
+            mb.showwarning("Erreur","Numéro incorrect")
         
         id = rd.randint(100,900) +  rd.randint(1,9) +  rd.randint(10,90)
         sexe=self.i.get()
@@ -98,7 +100,10 @@ class add_event:
         try:
             info_user=set_execute_request_with_params(request,params)
             mb.showinfo("enregitrer","L'événement a été enregistré")
-            print("All Event : ",info_user)
+            self.reason_event.delete(0, END)
+            self.meet_with.delete(0, END)
+            self.lieu.delete(0, END)
+            self.phone.delete(0, END)
         except Exception as e:
             print('Erreur :',e)
 

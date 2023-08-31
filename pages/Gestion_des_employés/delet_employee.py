@@ -65,6 +65,8 @@ class delete_employer :
             mb.showwarning("Avertissement","Veuillez remplir tous les champs")
         elif email[-10:] != "@gmail.com":
             mb.showwarning("Erreur","Entrez un mail correct.")
+        elif tel.isdigit()==False:
+            mb.showwarning("Erreur","Mauvais numéro!!!")
         else:
             if len(data)==0:
                 mb.showinfo("Avertissement","les informations entrez n'existe pas!!")
@@ -73,7 +75,10 @@ class delete_employer :
                 request1="delete from Employee where (fullname=? and email=? and phone=?)"
                 try:
                     set_execute_request_with_params(request1, params)
-                    mb.showinfo("supprimer","Vos modifications ont bien été ajoutée")
+                    mb.showinfo("supprimer","l'employé a bien été supprimer!!!")
+                    self.email.delete(0, END)
+                    self.nom.delete(0, END)
+                    self.tel.delete(0, END)
                 except:
                     mb.showerror("Erreur","Erreur d'enregistrement")
 

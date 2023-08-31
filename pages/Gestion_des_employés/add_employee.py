@@ -81,6 +81,9 @@ class ajout_employer :
             try :
                 test=set_execute_request_with_params(request,params)
                 mb.showinfo("enregistrer", "vos informations ont bien été enregistrer")
+                self.email.delete(0, END)
+                self.nom.delete(0, END)
+                self.tel.delete(0, END)
                 #data = get_execute_request_without_params(request1)
 
                 #print("All clients : ",data)

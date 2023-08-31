@@ -51,6 +51,8 @@ class delete_clients:
                     try:
                         set_execute_request_with_params(request_supprimer,[params])
                         mb.showinfo("supprimer","le cient a été supprimer.")
+                        self.email.delete(0, END)
+
                     except:
                         mb.showerror("Erreur"," une erreur c'est produit")   
                         

@@ -89,6 +89,8 @@ class RegisterPage:
             mb.showwarning("Avertisement!!","veillez remplir tout les champs.")
         elif email[-10:] != "@gmail.com":
             mb.showwarning("Erreur","Entre un mail correct")
+        elif (phone.isdigit()==False):
+            mb.showwarning("Erreur","Mauvais numero!!!")
         else:
             params = (id,fullname,password,email,phone,gender)
             #request = "select * from User"
@@ -99,7 +101,7 @@ class RegisterPage:
                 # user_info = get_execute_request_without_params(request)
 
                 print("All username : ",info_user)              
-                call([HomePage(self.page,self.width,self.height)])
+                call([HomePage(self.page,self.width,self.height,self.fullname.get())])
             except Exception as e:
                 print('Erreur :',e)
             

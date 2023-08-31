@@ -19,7 +19,7 @@ class gest_stats:
         
         ###################### creation du premier frame client ##############################
         Label(self.page,text="Clients :",font=self.font,bg="#444444").place(x=self.width/4 -170,y=self.height/4)
-        request = "select * from Client "
+        request = "select * from Event "
         nombreClients = len(get_execute_request_without_params(request))
         new=Frame(self.page,relief=SUNKEN,bd=1)
 

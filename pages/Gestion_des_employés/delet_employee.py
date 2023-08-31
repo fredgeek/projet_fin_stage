@@ -49,7 +49,7 @@ class delete_employer :
             self.nom.delete(0,END)
             self.tel.delete(0,END)
 
-
+#vider les champ
     def suppr_employee(self):
         nom=self.nom.get()
         email=self.email.get()

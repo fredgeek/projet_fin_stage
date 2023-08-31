@@ -2,7 +2,9 @@ from tkinter import *
 from tkinter.font  import Font
 from tkinter import messagebox as mb
 
-from backend.requests_db import set_execute_request_with_params
+from backend.requests_db import set_execute_request_with_params, get_execute_request_with_params
+
+
 class delete_event :
     def __init__(self,root,width,height):
         self.fonts = ('Arial',14,'bold')
@@ -33,15 +35,31 @@ class delete_event :
             self.id.delete(0,END)
 
     def supprimer(self):
-       question = mb.askyesno("confirmer", "vous voulez vraiment supprimer ce rendez-vous ? ")
-       params=(self.id.get())
-       request="DELETE FROM Event WHERE id=?"
-       if question:
-           try:
-               delet=set_execute_request_with_params(request,params)
-               mb.showinfo("Supprimer","le rendez-vous a bien éte´supprimer!!")
-               self.id.delete(0, END)
 
-           except Exception as e:
-            print('Erreur :',e)
+        if (self.id.get() == ""):
+            mb.showwarning("Avertissement", "Veuiller Entrez l'Id du Rendez-vous!!!")
+        elif ((self.id.get()).isdigit() == False):
+            mb.showwarning("Erreur"," Veuillez Entrez un nombre!!! ")
+        else:
+            question = mb.askyesno("Confirmation", "le rendez-vous vas etre definitivement supprimmer , confirmer vous? ")
+            if question:
+                Id = self.id.get()
+                params = (Id)
+                request_select = "select * from Event where id=?"
+                info_request = get_execute_request_with_params(request_select, [params])
+                if len(info_request) == 0:
+                    mb.showinfo("Avertissement", "le rendez-vous n'existe pas , recommencer.")
+                else:
+                    request_supprimer = "delete from Event where id=? "
+                    try:
+                        set_execute_request_with_params(request_supprimer, [params])
+                        mb.showinfo("supprimer", "le Rendez-vous a été supprimer.")
+                        self.id.delete(0, END)
+
+                    except:
+                        mb.showerror("Erreur", " une erreur c'est produit")
+
+            else:
+                mb.showinfo("non confirmé", "verifier de nouveaux l' Id")
+
 

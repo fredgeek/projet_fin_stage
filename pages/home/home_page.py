@@ -18,10 +18,11 @@ from pages.home.boutton_compte import mon_compte
 
 class HomePage:
 
-    def __init__(self,root,width,height):
+    def __init__(self,root,width,height,username,tel,email,password):
         # dimensions de la fenetre
         self.width = width
         self.height = height
+        self.nom=username
 
 
 ################### root = fenetre parent, width et height sont les dimensions de la fenetre #############################
@@ -30,13 +31,13 @@ class HomePage:
     ################# barre de présentation en haut ########################
         self.presentationPart = Canvas(self.page,width=self.width,height=50,bg="#05716c")
         from pages.authentication.login_page import LoginPage
-        username="fred"
-        Label(self.presentationPart,text="Bienvenue Mr. "+username+" dans votre espace perso",font=("Arial",28,"italic"),bg="#05716c").place(x=300,y=7)
+        Nom=self.nom
+        Label(self.presentationPart,text="Bienvenue Mr. "+str(Nom)+" dans votre espace de travail",font=("Arial",28,"italic"),bg="#05716c").place(x=280,y=4)
 
         Button(self.presentationPart, text="Accueil", bg="#05716c"
                , width=13, height=1, fg="black", font=("arial", 14, "italic"), bd=0
                , activebackground="#05716c"
-               , activeforeground="white",command=lambda :HomePage(root,width,height)).place(x=0, y=10)
+               , activeforeground="white",command=lambda :HomePage(root,width,height,username)).place(x=0, y=10)
 
 
         self.presentationPart.place(x=0,y=0)
@@ -51,7 +52,7 @@ class HomePage:
         Button(self.fonction, text=" Mon Compte", bg="#315f72"
                , width=13, height=1, fg="black",font=("arial",14,"bold"),bd=0
                ,activebackground="#315f72"
-               ,activeforeground="white",command=lambda : mon_compte(self.page,self.width,self.height)).place(x=15, y=12)
+               ,activeforeground="white",command=lambda : mon_compte(self.page,self.width,self.height,tel,email,password)).place(x=15, y=12)
 
         ########## creation du menu des finances  ###########################
 

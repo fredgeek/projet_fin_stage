@@ -39,8 +39,9 @@ class delete_event :
        if question:
            try:
                delet=set_execute_request_with_params(request,params)
-               print(delet)
-               
+               mb.showinfo("Supprimer","le rendez-vous a bien éte´supprimer!!")
+               self.id.delete(0, END)
+
            except Exception as e:
             print('Erreur :',e)
 

@@ -9,7 +9,7 @@ from pages.Gestion_des_employés.add_employee import ajout_employer
 from pages.Gestion_des_employés.delet_employee import delete_employer
 from pages.Gestion_des_clients.Add_customer import ajout_clients
 from pages.Gestion_des_clients.delet_customer import delete_clients
-from pages.Gestion_des_statistiques.stat_de_entreprise import Nbr_clients
+from pages.Gestion_des_statistiques.gestion_stats import gest_stats
 from pages.Gestion_des_activités.add_event import add_event
 from pages.Gestion_des_activités.delet_event import delete_event
 from pages.Gestion_des_activités.show_events import all_event
@@ -113,7 +113,7 @@ class HomePage:
         ############## creation du menu des statistiques  ###################
         menu_des_statistiques=Button(self.fonction, text=" Statistiques "
                , bg="#315f72", width=13, height=1, fg="black", font=("arial", 14, "bold"),relief=FLAT
-                                     ,activebackground="#315f72",activeforeground="white",command=lambda:Nbr_clients(self.page,self.width,self.height))
+                                     ,activebackground="#315f72",activeforeground="white",command=lambda:gest_stats(self.page,self.width,self.height))
         #menu = Menu(menu_des_statistiques, tearoff=0)
         #menu_des_statistiques["menu"] = menu
         #menu.add_command(label="Nbre.Employes",activebackground="blue",activeforeground="white",command=lambda:Nbr_employer(self.page,self.width,self.height))

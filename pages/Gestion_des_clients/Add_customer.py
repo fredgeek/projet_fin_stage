@@ -83,7 +83,12 @@ class ajout_clients:
                 try:
                     info_user=set_execute_request_with_params(request,params)
                     mb.showinfo("Enregistrer","Le client a été  enregistré.")
-                    print(info_user)
+                    self.quat.delete(0, END)
+                    self.sect_acti.delete(0, END)
+                    self.tel.delete(0, END)
+                    self.email.delete(0, END)
+                    self.nom.delete(0, END)
+                    self.ville.delete(0, END)
 
                 
                 except Exception as e:

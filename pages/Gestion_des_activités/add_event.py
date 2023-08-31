@@ -35,9 +35,9 @@ class add_event:
         
         Label(self.page, text="STATUS : ", fg="pink", font=("Arial", 14, "bold"), bg="#1978a5").place(x=175, y=245)
         self.j = StringVar()
-        boutontraite=Radiobutton(self.page, text="Traité", value="Traité", variable=self.j, bg="#1978a5", font=("Arial", 12, "italic"),activebackground="#333333")
+        boutontraite=Radiobutton(self.page, text="Traité", value="Effectué", variable=self.j, bg="#1978a5", font=("Arial", 12, "italic"),activebackground="#333333")
         boutontraite.place(x=270, y=245)
-        boutonNontraite=Radiobutton(self.page, text="Non Traité", value="Non Traité", variable=self.j, bg="#1978a5", font=("Arial", 12, "italic"),activebackground="#333333")
+        boutonNontraite=Radiobutton(self.page, text="Non Traité", value="Non Effectué", variable=self.j, bg="#1978a5", font=("Arial", 12, "italic"),activebackground="#333333")
         boutonNontraite.place(x=350, y=245)
         boutontraite.invoke()
         
@@ -86,26 +86,26 @@ class add_event:
             self.phone.delete(0,END)
 
     def enregistre(self):
-        if self.meet_with=="" or self.phone=="" or self.lieu.get()=="" or self.reason_event.get()=="" or self.heur=="0"  :
+        if self.meet_with=="" or self.phone=="" or self.lieu.get()=="" or self.reason_event.get()=="" :
             mb.showwarning("Avertissement","Veuiller remplir tous les champs")
         elif self.phone.get().isdigit()==False:
             mb.showwarning("Erreur","Numéro incorrect")
+        else:
+            id = rd.randint(100,900) +  rd.randint(1,9) +  rd.randint(10,90)
+            sexe=self.i.get()
+            statu=self.j.get()
         
-        id = rd.randint(100,900) +  rd.randint(1,9) +  rd.randint(10,90)
-        sexe=self.i.get()
-        statu=self.j.get()
-        
-        params = (id,self.meet_with.get(),sexe,self.phone.get(),self.lieu.get(),statu,self.reason_event.get(),self.date.get(),self.heure)
-        request = "insert into Event values(?,?,?,?,?,?,?,?,?)"
-        try:
-            info_user=set_execute_request_with_params(request,params)
-            mb.showinfo("enregitrer","L'événement a été enregistré")
-            self.reason_event.delete(0, END)
-            self.meet_with.delete(0, END)
-            self.lieu.delete(0, END)
-            self.phone.delete(0, END)
-        except Exception as e:
-            print('Erreur :',e)
+            params = (id,self.meet_with.get(),sexe,self.phone.get(),self.lieu.get(),statu,self.reason_event.get(),self.date.get(),self.heure)
+            request = "insert into Event values(?,?,?,?,?,?,?,?,?)"
+            try:
+                info_user=set_execute_request_with_params(request,params)
+                mb.showinfo("enregitrer","L'événement a été enregistré")
+                self.reason_event.delete(0, END)
+                self.meet_with.delete(0, END)
+                self.lieu.delete(0, END)
+                self.phone.delete(0, END)
+            except Exception as e:
+                print('Erreur :',e)
 
     
              

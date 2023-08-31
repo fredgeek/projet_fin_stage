@@ -41,8 +41,19 @@ class all_spending:
         fenetre.place(x=200,y=200,width=600,height=200)
         request="select * from Finance"
         self.select = get_execute_request_without_params(request)
-        for j in self.select:
-            fenetre.insert("", END, values=j)
+        for item in self.select:
+            print('Recuperation du tuple : ', item)
+
+            formater_data = list(item)
+            print('Conversion du tuple en liste  : ',formater_data)
+
+            formater_data[2] = str(formater_data[2])+' Fcfa'
+            print('Recuperation du montant et ajustement avec la monnaie : ', formater_data)
+
+            print('Reconversion de la liste en tuple puis insertion dans le Treeview : ')
+            new_data = tuple(formater_data)
+            fenetre.insert("", END, values=new_data)
+
 
         # affichage du nombre d'évenements
         param1="Non Payée"

@@ -5,10 +5,9 @@ from tkinter.font import Font
 import random as rd
 
 from backend.requests_db import set_execute_request_with_params
-from pages.Gestion_des_finance.edit_invoice import EditInvoice
 
 
-class ajout_facture:
+class EditInvoice:
 
     def __init__(self,root,width,height):
 
@@ -17,7 +16,7 @@ class ajout_facture:
 ############################   création du canvas d'affichage   ######################
         self.page = Canvas(root, width=self.width, height=self.height, bg="#05716c")
         self.font=Font(family="Helvetica",size=12,underline=True,slant="italic",weight="bold")
-        Label(self.page, text="2.    Enregistrez les informations de votre facture", fg="black", font=self.font, bg="#05716c").place(x=20, y=20)
+        Label(self.page, text="1.    Modifiez une facture", fg="black", font=self.font, bg="#05716c").place(x=20, y=20)
         ############### creation du formulaire de renseignement ########################
 
         ############### entrer la date d'enregistrement de la facture ########################
@@ -68,16 +67,15 @@ class ajout_facture:
               , fg="black", font=("Arial",9, "bold"), bg="#05716c").place(x=self.width/4 -60, y=self.height-100)
 
         Button(self.page, text="  Modif.stat  ", font=("arial", 9, "italic"), bg="blue", fg="white",
-               activebackground="#05716c", activeforeground="red",
-               command=lambda :EditInvoice(self.page,width,height)).place(x=self.width/2 +40, y=self.height-100)
+               activebackground="#05716c", activeforeground="red").place(x=self.width/2 +40, y=self.height-100)
 
         #################################  affichage du canvas principale #####################
-        self.page.place(x=200, y=51)
+        self.page.place(x=0, y=0)
 
     def enregistre(self):
             test=mb.askyesno("confirmer","vous confirmer que les informations entrez sont correctes? ")
             if test:
-                self.finance_ajout()
+                self.edit_facture()
     def supprimer(self):
             test=mb.askyesno("confirmer","Voulez- vous vraiment vider tous les champs ? ")
             if test:
@@ -85,7 +83,7 @@ class ajout_facture:
                 self.montant.delete(0,END)
                 self.dat.delete(0,END)
 
-    def finance_ajout(self):
+    def edit_facture(self):
 
         id = rd.randint(100,900) +  rd.randint(1,9) +  rd.randint(10,90)
 

@@ -51,7 +51,7 @@ class all_clients:
          # affichage du nombre d'employer
         # affichage du nombre d'employer
         NbreClients= len(self.select)
-        Label(self.page, text=f"vous avez {str(NbreClients)} clents", font=self.fonts, bg="#333333",
+        Label(self.page, text=f"vous avez {str(NbreClients)} clients", font=self.fonts, bg="#333333",
               fg="white").place(x=self.width-500, y=self.height-110)
 
 

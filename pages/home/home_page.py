@@ -134,7 +134,7 @@ class HomePage:
         Label(self.present, image=self.img).place(x=0,y=0)
         Label(self.present, text=" Product By DIS BUSINESS GROUP SARL, \nvotre agence de marketing ,de devellopement web et d application Android et Ios....\n pour en savoir plus sur Dis Bussiness Group cliquez "
               ,font=('Arial',8,'bold')).place(x=550, y=self.height -100)
-        Button(self.present,text="ici", font=('Arial', 8, 'bold'),command=lambda :wb.open_new("http:disbusinness.com"),bd=0,fg="blue").place(x=933, y=self.height - 73)
+        Button(self.present,text="ici", font=('Arial', 8, 'bold'),command=lambda :wb.open_new("https://www.disbusinessgroup.com/"),bd=0,fg="blue").place(x=933, y=self.height - 73)
 
         Label(self.present, text="Notice d'utilisation : ",font=self.fonts,bg=None).place(x=20, y=self.height-125)
 

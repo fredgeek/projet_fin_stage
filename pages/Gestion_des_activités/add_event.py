@@ -39,7 +39,7 @@ class add_event:
         boutontraite.place(x=270, y=245)
         boutonNontraite=Radiobutton(self.page, text="Non Traité", value="Non Effectué", variable=self.j, bg="#1978a5", font=("Arial", 12, "italic"),activebackground="#333333")
         boutonNontraite.place(x=350, y=245)
-        boutontraite.invoke()
+        boutonNontraite.invoke()
         
         Label(self.page, text="Date du rendez-vous: ", font=self.fonts,bg="#1978a5", fg="pink").place(x=175, y=295)
         self.date=tk.DateEntry(self.page,state="readonly")

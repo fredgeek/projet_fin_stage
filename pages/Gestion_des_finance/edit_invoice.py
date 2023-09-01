@@ -16,7 +16,7 @@ class EditInvoice:
 ############################   création du canvas d'affichage   ######################
         self.page = Canvas(root, width=self.width, height=self.height, bg="#05716c")
         self.font=Font(family="Helvetica",size=12,underline=True,slant="italic",weight="bold")
-        Label(self.page, text="1.    Modifiez une facture", fg="black", font=self.font, bg="#05716c").place(x=20, y=20)
+        Label(self.page, text="3.    Modifiez une facture", fg="black", font=self.font, bg="#05716c").place(x=20, y=20)
         ############### creation du formulaire de renseignement ########################
 
         ############### entrer la date d'enregistrement de la facture ########################
@@ -40,15 +40,16 @@ class EditInvoice:
         bouton1.place(x=250, y=200)
         bouton2 = Radiobutton(self.page, text="Non Payée",value="Non Payée", variable=self.j,activebackground="#05716c",fg="black",activeforeground="white", bg="#05716c", font=("Arial", 12, "italic"))
         bouton2.place(x=350, y=200)
-        bouton1.invoke()
+        bouton2.invoke()
 
         ####################  entrer la date de payement si disponible ####################################
         #Label(self.page, text="Date de payement(facultative) :", fg="black", font=("Arial",14, "bold"), bg="yellow").place(x=120, y=180)
         #self.dat = DateEntry(self.page, bg="yellow").place(x=450, y=184)
 
         ################# entrez le montant de la facture ##################################
-        Label(self.page, text="Entrer le montant de la facture ", fg="black", font=("Arial",14, "bold"), bg="#05716c").place(x=120, y=245)
+        Label(self.page, text="Entrer le montant de la facture " ,fg="black", font=("Arial",14, "bold"), bg="#05716c").place(x=120, y=245)
         self.montant=Entry(self.page, font=("Arial",14,"bold"))
+
         self.montant.place(x=425,y=245)
 
         ############################### entrez un identifiant pour differencier les factures #############################
@@ -62,12 +63,6 @@ class EditInvoice:
                bg="blue",activebackground="#05716c",activeforeground="blue",command=self.enregistre).place(x=215,y=375)
         Button(self.page, text="          Effacer          ", font=("arial",14,"italic"), bg="orange", fg="white",
                activebackground="#05716c", activeforeground="red", command=self.supprimer).place(x=430, y=375)
-################################  bouton pour modifier le status d'une facture ##############################
-        Label(self.page, text="Pour modifier le status d'une factutre pré-enregistrez, cliquez ici : "
-              , fg="black", font=("Arial",9, "bold"), bg="#05716c").place(x=self.width/4 -60, y=self.height-100)
-
-        Button(self.page, text="  Modif.stat  ", font=("arial", 9, "italic"), bg="blue", fg="white",
-               activebackground="#05716c", activeforeground="red").place(x=self.width/2 +40, y=self.height-100)
 
         #################################  affichage du canvas principale #####################
         self.page.place(x=0, y=0)

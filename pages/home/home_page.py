@@ -14,6 +14,8 @@ from pages.Gestion_des_activités.add_event import add_event
 from pages.Gestion_des_activités.delet_event import delete_event
 from pages.Gestion_des_activités.show_events import all_event
 from pages.home.boutton_compte import mon_compte
+from tkinter.font import Font
+import webbrowser as wb
 
 
 class HomePage:
@@ -22,7 +24,9 @@ class HomePage:
         # dimensions de la fenetre
         self.width = width
         self.height = height
-        self.nom=username
+        self.username=username
+
+        self.fonts=Font(family="Arial",underline=True,size=10,weight=NORMAL,slant='roman')
 
 
 ################### root = fenetre parent, width et height sont les dimensions de la fenetre #############################
@@ -31,7 +35,7 @@ class HomePage:
     ################# barre de présentation en haut ########################
         self.presentationPart = Canvas(self.page,width=self.width,height=50,bg="#05716c")
         from pages.authentication.login_page import LoginPage
-        Nom=self.nom
+        Nom=self.username
         Label(self.presentationPart,text="Bienvenue cher(e) "+str(Nom)+" dans votre espace de travail",font=("Arial",28,"italic"),bg="#05716c").place(x=280,y=4)
 
         Button(self.presentationPart, text="Accueil", bg="#05716c"
@@ -52,7 +56,7 @@ class HomePage:
         Button(self.fonction, text=" Mon Compte", bg="#315f72"
                , width=13, height=1, fg="black",font=("arial",14,"bold"),bd=0
                ,activebackground="#315f72"
-               ,activeforeground="white",command=lambda : mon_compte(self.page,self.width,self.height,self.nom)).place(x=15, y=12)
+               ,activeforeground="white",command=lambda : mon_compte(self.page,self.width,self.height,Nom)).place(x=15, y=12)
 
         ########## creation du menu des finances  ###########################
 
@@ -128,7 +132,16 @@ class HomePage:
         self.img = PhotoImage(file="accueil-entreprise.png").zoom(25).subsample(13)
         self.present = Canvas(self.page,width=self.width-200,height=self.height-51,bg="aqua")
         Label(self.present, image=self.img).place(x=0,y=0)
-        Label(self.present, text="DIS BUSINESS GROUP SARL",font=('Arial',30,'bold')).place(x=210, y=20)
+        Label(self.present, text=" Product By DIS BUSINESS GROUP SARL, \nvotre agence de marketing ,de devellopement web et d application Android et Ios....\n pour en savoir plus sur Dis Bussiness Group cliquez "
+              ,font=('Arial',8,'bold')).place(x=550, y=self.height -100)
+        Button(self.present,text="ici", font=('Arial', 8, 'bold'),command=lambda :wb.open_new("https://www.disbusinessgroup.com/"),bd=0,fg="blue").place(x=933, y=self.height - 73)
+
+        Label(self.present, text="Notice d'utilisation : ",font=self.fonts,bg=None).place(x=20, y=self.height-125)
+
+        Label(self.present, text="pour une utilisation optimale de cette application\n   -veillez remplir tous les champs avant le clic sur un bouton \n - veillez verifier que tous les champs sont correctement entrez avant de valider "
+              ,font=('Arial',8,'bold')).place(x=20, y=self.height -100)
+
+
 
 
 

@@ -41,7 +41,7 @@ class ajout_facture:
         bouton1.place(x=250, y=200)
         bouton2 = Radiobutton(self.page, text="Non Payée",value="Non Payée", variable=self.j,activebackground="#05716c",fg="black",activeforeground="white", bg="#05716c", font=("Arial", 12, "italic"))
         bouton2.place(x=350, y=200)
-        bouton1.invoke()
+        bouton2.invoke()
 
         ####################  entrer la date de payement si disponible ####################################
         #Label(self.page, text="Date de payement(facultative) :", fg="black", font=("Arial",14, "bold"), bg="yellow").place(x=120, y=180)
@@ -63,13 +63,6 @@ class ajout_facture:
                bg="blue",activebackground="#05716c",activeforeground="blue",command=self.enregistre).place(x=215,y=375)
         Button(self.page, text="          Effacer          ", font=("arial",14,"italic"), bg="orange", fg="white",
                activebackground="#05716c", activeforeground="red", command=self.supprimer).place(x=430, y=375)
-################################  bouton pour modifier le status d'une facture ##############################
-        Label(self.page, text="Pour modifier le status d'une factutre pré-enregistrez, cliquez ici : "
-              , fg="black", font=("Arial",9, "bold"), bg="#05716c").place(x=self.width/4 -60, y=self.height-100)
-
-        Button(self.page, text="  Modif.stat  ", font=("arial", 9, "italic"), bg="blue", fg="white",
-               activebackground="#05716c", activeforeground="red",
-               command=lambda :EditInvoice(self.page,width,height)).place(x=self.width/2 +40, y=self.height-100)
 
         #################################  affichage du canvas principale #####################
         self.page.place(x=200, y=51)
